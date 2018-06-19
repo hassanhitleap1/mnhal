@@ -1,0 +1,78 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 21/03/2018 14:15
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+      font-size: 24px;
+    }
+
+    .flaticon-import-export-arrows:before { content: "\f100"; }
+.flaticon-homework:before { content: "\f101"; }
+.flaticon-home-page:before { content: "\f102"; }
+.flaticon-computer:before { content: "\f103"; }
+.flaticon-schedule-of-clases:before { content: "\f104"; }
+.flaticon-calendar-with-a-clock-time-tools:before { content: "\f105"; }
+.flaticon-prize-badge-with-star-and-ribbon:before { content: "\f106"; }
+.flaticon-progress:before { content: "\f107"; }
+.flaticon-test:before { content: "\f108"; }
+.flaticon-lesson:before { content: "\f109"; }
+.flaticon-standard-of-quality:before { content: "\f10a"; }
+.flaticon-category:before { content: "\f10b"; }
+.flaticon-multiple-users-silhouette:before { content: "\f10c"; }
+.flaticon-business-people-meeting:before { content: "\f10d"; }
+.flaticon-games:before { content: "\f10e"; }
+.flaticon-parents:before { content: "\f10f"; }
+.flaticon-school:before { content: "\f110"; }
+.flaticon-teacher-pointing-blackboard:before { content: "\f111"; }
+.flaticon-management:before { content: "\f112"; }
+    
+    $font-Flaticon-import-export-arrows: "\f100";
+    $font-Flaticon-homework: "\f101";
+    $font-Flaticon-home-page: "\f102";
+    $font-Flaticon-computer: "\f103";
+    $font-Flaticon-schedule-of-clases: "\f104";
+    $font-Flaticon-calendar-with-a-clock-time-tools: "\f105";
+    $font-Flaticon-prize-badge-with-star-and-ribbon: "\f106";
+    $font-Flaticon-progress: "\f107";
+    $font-Flaticon-test: "\f108";
+    $font-Flaticon-lesson: "\f109";
+    $font-Flaticon-standard-of-quality: "\f10a";
+    $font-Flaticon-category: "\f10b";
+    $font-Flaticon-multiple-users-silhouette: "\f10c";
+    $font-Flaticon-business-people-meeting: "\f10d";
+    $font-Flaticon-games: "\f10e";
+    $font-Flaticon-parents: "\f10f";
+    $font-Flaticon-school: "\f110";
+    $font-Flaticon-teacher-pointing-blackboard: "\f111";
+    $font-Flaticon-management: "\f112";

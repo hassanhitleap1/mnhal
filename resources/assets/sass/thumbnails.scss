@@ -1,0 +1,24 @@
+﻿.thumbnail {
+    @include border-radius(0);
+
+    p:not(button) {
+        color: #999999;
+        font-size: 12px;
+        height: 70px;
+        overflow: hidden;
+    }
+    a {
+        font-size: 11px !important;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0 0 5px 0;
+        padding: 0;
+    }
+    img{
+        height: 100px;
+        object-fit: contain;
+    }
+}
