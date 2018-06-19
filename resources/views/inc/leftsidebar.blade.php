@@ -29,19 +29,19 @@
             <li class="active">page 3</li>
         </ol>
         <ul class="list">
-            <li class="active" {{ Request::is('/url') ? ' class="active"' : null }}>
+        <li class="{{ Request::is('*') ? 'active' : '' }}" >
                 <a href="{{url('/')."/".Lang::getLocale()}}/">
                     <i class="flaticon-home-page fi"></i>
                     <span>@lang('lang.Home')</span>
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('*/admins') ? 'active' : '' }}" >
                 <a href="{{url('/')."/".Lang::getLocale()}}/admins">
                     <i class="flaticon-management fi"></i>
                     <span>@lang('lang.Admins')</span>
                 </a>
             </li>
-            <li >
+            <li class="{{ Request::is('*/teachers') ? 'active' : '' }}" >
                 <a href="{{url('/')."/".Lang::getLocale()}}/teachers">
                     <i class="flaticon-teacher-pointing-blackboard fi"></i>
                     <span>@lang('lang.Teachers')</span>
@@ -174,4 +174,3 @@
     <!-- #Footer -->
 </aside>
 <!-- #END# Left Sidebar -->
-
