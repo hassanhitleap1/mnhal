@@ -1241,3 +1241,8 @@ $(document).on('click', '.btn-addhomework', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/homework/add");
 });
 */
+$(document).on("click","#popup_addteacher",function(){
+    $("#popup_content").load(SITE_URL+Language+"/teachers/new");
+    console.log();
+    showpopup();
+});

@@ -18,7 +18,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4 float-right">
-                                    <a class="btn btn-primary waves-effect float-right" onclick="showpopup();">@lang('lang.Add_Teacher')</a>
+                                    <a class="btn btn-primary waves-effect float-right" onclick="showpopup();" id="popup_addteacher">@lang('lang.Add_Teacher')</a>
                                 </div>
                             </div>
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -35,26 +35,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>10</td>
-                                    <td><img src="/images/user.png" alt="User Avatar" class="img-circle avatar-table" width="400"><span class="name">oday</span> </td>
-                                    <td>oday@manhal</td>
-                                    <td>0786870058</td>
-                                    <td>Home room level</td>
-                                    <td>Home room class</td>
-                                    <td>2011/04/25</td>
-                                    <td class="action"><a title="@lang('lang.Edit')"><i class="material-icons">edit</i></a> <a title="@lang('lang.Delete')"><i class="material-icons">delete</i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td><img src="/images/user.png" alt="User Avatar" class="img-circle avatar-table" width="400"><span class="name">oday</span> </td>
-                                    <td>oday@manhal</td>
-                                    <td>0786870058</td>
-                                    <td>Home room level</td>
-                                    <td>Home room class</td>
-                                    <td>2011/04/25</td>
-                                    <td class="action"><a title="@lang('lang.Edit')"><i class="material-icons">edit</i></a> <a title="@lang('lang.Delete')"><i class="material-icons">delete</i></a></td>
-                                </tr>
+                                @foreach($teachers as $teacher)
+                                   <?php
+                                    $i=1;
+                                        if(is_file("storage/".$teacher->avatar)){
+                                            $avatar=URL::to('/')."/storage/".$teacher->avatar;
+                                        }else{
+                                            $avatar="/images/user.png";
+                                        }
+                                   //$avatar=URL::to('/')."/storage/".$teacher->avatar;
+                                   ?>
+
+                                    <tr>
+                                        <td>{{++$i}}</td>
+                                        <td><img src="{{$avatar}}" alt="User Avatar" class="img-circle avatar-table" width="400"><span class="name">{{$teacher->uname}}</span></td>
+                                        <td>{{$teacher->email}}</td>
+                                        <td>{{$teacher->phone}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{{$teacher->created_at}}</td>
+                                        <td class="action"><a class="edit_user" data-id="{{$teacher->userid}}"><i class="material-icons" title="@lang('lang.Edit')">edit</i></a>
+                                            <a class="jq_delete_user"  data-id="{{$teacher->userid}}" data-action="{{url('/')."/".Lang::getLocale()}}/teachers/{{$teacher->userid}}/delete"><i class="material-icons" title="@lang('lang.Delete')">delete</i></a></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                             <div class="row">
@@ -65,26 +68,10 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-7">
-                                    <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                        <ul class="pagination">
-                                            <li class="disabled">
-                                                <a href="">
-                                                    <i class="material-icons">chevron_left</i>
-                                                </a>
-                                            </li>
-                                            <li class="active"><a href="">1</a></li>
-                                            <li><a href="" class="waves-effect">2</a></li>
-                                            <li><a href="" class="waves-effect">3</a></li>
-                                            <li><a href="" class="waves-effect">4</a></li>
-                                            <li><a href="" class="waves-effect">5</a></li>
-                                            <li>
-                                                <a href="" class="waves-effect">
-                                                    <i class="material-icons">chevron_right</i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                    {{$teachers->links()}}
                                 </div>
+                            </div>
                             </div>
                         </div>
                 </div>

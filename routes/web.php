@@ -126,3 +126,8 @@ Route::get('/js/lang.js', function () {
     exit();
 })->name('assets.lang');
 
+Route::any('/{lang}/teachers','TeachersController@index');
+Route::any('/{lang}/teachers/new','TeachersController@newuser');
+Route::any('/{lang}/teachers/{id}/edit','TeachersController@edit');
+Route::any('/{lang}/teachers/{id}/update','TeachersController@update');
+Route::any('/{lang}/teachers/{id}/delete','TeachersController@delete');
