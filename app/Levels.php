@@ -13,7 +13,7 @@ class Levels extends Model {
     public $timestamps = true;
 
     public function homeRoomLevel(){
-        return $this->belongsTo(Users::class);
+        return $this->hasOne(Users::class);
     }
 
 }

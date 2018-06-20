@@ -50,8 +50,14 @@
                                         <td><img src="{{$avatar}}" alt="User Avatar" class="img-circle avatar-table" width="400"><span class="name">{{$teacher->uname}}</span></td>
                                         <td>{{$teacher->email}}</td>
                                         <td>{{$teacher->phone}}</td>
-                                        <td>{{($teacher->level != -1)?$teacher->level:"null"}}</td>
-                                        <td>{{($teacher->class != -1)?$teacher->class:"null"}}</td>
+                                        <td>
+                                        {{($teacher->level != -1)?$teacher->homeRoomLevel:"null"}}
+                                        <!-- {{$teacher->homeRoomLevel}} -->
+                                        </td>
+                                        <td>
+                                        {{($teacher->class != -1)?$teacher->class:"null"}}
+                                        <!-- {{$teacher->homeRoomClass}} -->
+                                        </td>
                                         <td>{{$teacher->created_at}}</td>
                                         <td class="action">
                                             <a class="" id="edit_teacher" data-id="{{$teacher->userid}}"><i class="material-icons" title="@lang('lang.Edit')">edit</i></a>

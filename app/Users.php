@@ -13,9 +13,9 @@ class Users extends Model
     protected $primaryKey='userid';
 
     public function homeRoomLevel(){
-        return $this->hasOne(Levels::class);
+        return $this->belongsTo(Levels::class);
     }
     public function homeRoomClass(){
-        return $this->hasOne(Classes::class);
+        return $this->belongsTo(Classes::class);
     }
 }
