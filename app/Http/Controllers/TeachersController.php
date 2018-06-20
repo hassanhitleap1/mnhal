@@ -121,7 +121,7 @@ class TeachersController extends Controller {
         ->select('levels.*', 'classes.*')
         ->get();
     $data=[
-        "admin"=>$teacher,
+        "teacher"=>$teacher,
         "classes"=>$classes
     ];
     return view('teachers.edit')->with($data);
