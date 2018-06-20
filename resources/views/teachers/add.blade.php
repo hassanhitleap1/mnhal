@@ -1,6 +1,15 @@
 @section('title', 'Add')
-<form id="edit-form" action="{{URL::to('/').'/'.Lang::getLocale().'/admins/savenew'}}" enctype="multipart/form-data" method="POST">
+<form id="edit-form" action="{{URL::to('/').'/'.Lang::getLocale().'/teachers/save'}}" enctype="multipart/form-data" method="POST">
     <div class="row clearfix">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="col-sm-6">
             <div class="form-group">
                 <div class="form-line">
@@ -46,14 +55,14 @@
                         ?>
                         @foreach($classes as $class)
                             @if(array_search($class->level,$Levels)===false)
-                                <option data-id="{{$class->level}}">{{$class->{"ltitle_".Lang::getLocale()} }}</option>
+                                <option data-id="{{$class->level}}" value="{{$class->level}}">{{$class->{"ltitle_".Lang::getLocale()} }}</option>
                                 <?php
                                 $Levels[]=$class->level;
                                 ?>
                             @endif
 
                             <?php
-                            $class_options.='<option level-id="'.$class->level.'" data-id="'.$class->class_id.'">'.$class->{"ctitle_".Lang::getLocale()}.'</option>';
+                            $class_options.='<option value='.$class->level .'  level-id="'.$class->level.'" data-id="'.$class->class_id.'">'.$class->{"ctitle_".Lang::getLocale()}.'</option>';
                             ?>
 
                         @endforeach
@@ -94,7 +103,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary waves-effect" type="button"  id="update_admin" admin-id="">@lang('lang.Save')</button>
+            <button class="btn btn-primary waves-effect" type="button"  id="update_teacher" admin-id="">@lang('lang.Save')</button>
         </div>
 
     </div>

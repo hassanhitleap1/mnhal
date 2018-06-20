@@ -131,3 +131,4 @@ Route::any('/{lang}/teachers/new','TeachersController@newuser');
 Route::any('/{lang}/teachers/{id}/edit','TeachersController@edit');
 Route::any('/{lang}/teachers/{id}/update','TeachersController@update');
 Route::any('/{lang}/teachers/{id}/delete','TeachersController@delete');
+Route::any('/{lang}/teachers/save','TeachersController@store');

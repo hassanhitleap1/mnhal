@@ -1,14 +1,14 @@
 <?php
 namespace App\Http\Controllers;
+use Response;
+use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-//use App\Http\Controllers\Controller;
-use App\Users;
-
-
-
-
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 
 
@@ -21,6 +21,7 @@ class TeachersController extends Controller {
    */
   public function index(){
     $teachers= Users::where("permession",4)->paginate(2);
+    
     return view('teachers.index')->with("teachers",$teachers);
   }
 
@@ -39,9 +40,61 @@ class TeachersController extends Controller {
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $request)
   {
+    $teacherModel=new Users();
+ 
+    $rules = array(
+          'uname' => 'required',
+          'email' => 'required',
+      );
+
+      $validator = Validator::make(Input::all(), $rules);
+
+      if ($validator->fails())
+      {
+        $admin="";
+        $classes = DB::table('levels')
+            ->join('classes', 'classes.level', '=', 'levels.level_id')
+            ->select('levels.*', 'classes.*')
+            ->get();
+        $data=[
+            "admin"=>$admin,
+            "classes"=>$classes
+        ];
+      
+        // return response(view('teachers.add',['data'=>$data]),200, ['Content-Type' => 'application/json']);
     
+      }
+    
+    $teacherModel->uname=$request->uname;
+    $teacherModel->password=123;
+    //$teacherModel->avatar
+    $teacherModel->permession=4;
+    $teacherModel->email=$request->email;
+    $teacherModel->fullname=$request->fullname;
+    $teacherModel->status=1;
+    $teacherModel->phone=$request->phone;
+    $teacherModel->birthdate=$request->birthdate;
+    $teacherModel->class=$request->home_room_class;
+    $teacherModel->level=$request->home_room_level;
+    $teacherModel->created_at=date('Y-m-d h:m:s');
+    $path="";
+    $id=1;
+    if (request()->hasFile('avatar')) {
+      if(array_search(strtolower(request()->avatar->extension()),config('lms.aloowed_pictures'))!==false){
+        $pathdata='images/avatars/'.$id.'.'.strtolower(request()->avatar->extension());
+        $path = request()->avatar->storeAs('public/images/avatars', $id.'.'.strtolower(request()->avatar->extension()));
+        $teacherModel->avatar=$pathdata;
+      }
+    }else{
+      $teacherModel->avatar=$path;
+    }
+    $teacherModel->save();
+    
+    $teachers= Users::where("permession",4)->paginate(2);
+    
+    return view('teachers.index')->with("teachers",$teachers)->renderSections()['content'];
   }
 
   /**

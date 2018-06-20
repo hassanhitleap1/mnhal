@@ -45,17 +45,20 @@
                                         }
                                    //$avatar=URL::to('/')."/storage/".$teacher->avatar;
                                    ?>
-
                                     <tr>
                                         <td>{{++$i}}</td>
                                         <td><img src="{{$avatar}}" alt="User Avatar" class="img-circle avatar-table" width="400"><span class="name">{{$teacher->uname}}</span></td>
                                         <td>{{$teacher->email}}</td>
                                         <td>{{$teacher->phone}}</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{($teacher->level != -1)?$teacher->level:"null"}}</td>
+                                        <td>{{($teacher->class != -1)?$teacher->class:"null"}}</td>
                                         <td>{{$teacher->created_at}}</td>
-                                        <td class="action"><a class="edit_user" data-id="{{$teacher->userid}}"><i class="material-icons" title="@lang('lang.Edit')">edit</i></a>
-                                            <a class="jq_delete_user"  data-id="{{$teacher->userid}}" data-action="{{url('/')."/".Lang::getLocale()}}/teachers/{{$teacher->userid}}/delete"><i class="material-icons" title="@lang('lang.Delete')">delete</i></a></td>
+                                        <td class="action">
+                                            <a class="" id="edit_teacher" data-id="{{$teacher->userid}}"><i class="material-icons" title="@lang('lang.Edit')">edit</i></a>
+                                            <a class="jq_delete_user"  data-id="{{$teacher->userid}}" data-action="{{url('/')."/".Lang::getLocale()}}/teachers/{{$teacher->userid}}/delete"><i class="material-icons" title="@lang('lang.Delete')">delete</i></a>
+                                            <a  data-id="{{$teacher->userid}}" href="{{url('/')."/".Lang::getLocale()}}/classes/{{$teacher->userid}}"><i class="material-icons" title="@lang('lang.Classes')">classes</i></a>
+                                            <a  data-id="{{$teacher->userid}}" href="{{url('/')."/".Lang::getLocale()}}/group/{{$teacher->userid}}"><i class="material-icons" title="@lang('lang.Group')">group</i></a>
+                                            </td>
                                     </tr>
                                 @endforeach
                             </tbody>
