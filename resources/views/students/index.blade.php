@@ -73,18 +73,29 @@
                                             </div>
                                         </div>
                                     </form>
+                                </div>
                                 <div class="col-sm-3 float-left">
                                     <form class="form-horizontal">
                                         <div class="row clearfix">
-                                            <button class="btn btn-primary waves-effect " type="button"  id="searchstudent" >@lang('lang.Search')</button>
-                                            <input type="hidden" class="jq_formdata" name="_token" value="{{ csrf_token() }}">
+                                            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                                <div class="form-group">
+                                                    <div class="form-line float-left">
+                                                        <input type="hidden" class="jq_formdata" name="_token" value="{{ csrf_token() }}">
+                                                        <button class="btn btn-primary waves-effect  " type="button"  id="searchstudent" >@lang('lang.Search')</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </form>
-                                </div>   
+                                </div>                                                   
                         </div>
-                        <div class="col-sm-4 float-right">
-                                    <a class="btn btn-primary waves-effect float-right" onclick="showpopup();" id="popup_addstudent" >@lang('lang.Add_Student')</a>
-                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 float-right">
+                                 <a class="btn btn-primary waves-effect float-right" onclick="showpopup();" id="popup_addstudent" >@lang('lang.Add_Student')</a>
+                            </div>
+                        </div>                 
+                                            
+                                   
 
           
 
