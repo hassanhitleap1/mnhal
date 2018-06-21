@@ -9,17 +9,88 @@
             <div class="card">
                 <div class="body table-responsive">
                         <div class="dataTables_wrapper form-inline dt-bootstrap">
-                            <div class="row">
-                                <div class="col-sm-8 float-left">
-                                    <div class="dataTables_filter pull-left">
-                                        <label>@lang('lang.Search')</label>
-                                        <input type="search" class="form-control input-sm" placeholder="@lang('lang.Search')" aria-controls="DataTables_Table_0">
-                                    </div>
+                        <div class="row">
+                                <div class="col-sm-3 float-left">
+                                    <form class="form-horizontal">
+                                        <div class="row clearfix">
+                                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                                <label class="float-left">@lang('lang.Search')</label>
+                                            </div>
+                                            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                                <div class="form-group">
+                                                    <div class="form-line float-left">
+                                                        <input type="search" class="form-control show-tick" placeholder="@lang('lang.Search')" aria-controls="DataTables_Table_0" id="search">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="col-sm-4 float-right">
-                                    <a class="btn btn-primary waves-effect float-right" onclick="showpopup();">@lang('lang.Add_Student')</a>
+                                <div class="col-sm-3 float-left">
+                                    <form class="form-horizontal">
+                                        <div class="row clearfix">
+                                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                                <label class="float-left">Level</label>
+                                            </div>
+                                            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                                <div class="form-group">
+                                                    <div class="form-line float-left">
+                                                        <select class="form-control show-tick">
+                                                             <option value="-1">-----</option>
+                                                                <?php $Levels=[];$class_options=''; ?>
+                                                                    @foreach($classes as $class)
+                                                                        @if(array_search($class->level,$Levels)===false)
+                                                                            <option data-id="{{$class->level}}" value="{{$class->level}}">{{$class->{"ltitle_".Lang::getLocale()} }}</option>
+                                                                                <?php $Levels[]=$class->level;?>
+                                                                        @endif
+                                                                            <?php
+                                                                            $class_options.='<option value='.$class->level .'  level-id="'.$class->level.'" data-id="'.$class->class_id.'">'.$class->{"ctitle_".Lang::getLocale()}.'</option>';
+                                                                            ?>
+
+                                                                    @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
+                                <div class="col-sm-3 float-left">
+                                    <form class="form-horizontal">
+                                        <div class="row clearfix">
+                                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                                <label class="float-left">@lang('lang.Class')</label>
+                                            </div>
+                                            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                                <div class="form-group">
+                                                    <div class="form-line float-left">
+                                                        <select class="form-control show-tick">
+                                                            <option value="-1">-----</option>
+                                                            <?=$class_options?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                <div class="col-sm-3 float-left">
+                                    <form class="form-horizontal">
+                                        <div class="row clearfix">
+                                            <button class="btn btn-primary waves-effect " type="button"  id="searchstudent" >@lang('lang.Search')</button>
+                                            <input type="hidden" class="jq_formdata" name="_token" value="{{ csrf_token() }}">
+                                        </div>
+                                    </form>
+                                </div>   
+                        </div>
+                        <div class="col-sm-4 float-right">
+                                    <a class="btn btn-primary waves-effect float-right" onclick="showpopup();" id="popup_addstudent" >@lang('lang.Add_Student')</a>
+                        </div>
+
+          
+
+
+
+
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                             <thead>
                                 <tr>
@@ -35,28 +106,37 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>10</td>
-                                    <td><img src="/images/user.png" alt="User Avatar" class="img-circle avatar-table" width="400"><span class="name">oday</span> </td>
-                                    <td>oday@manhal</td>
-                                    <td>0786870058</td>
-                                    <td>2011/04/25</td>
-                                    <td>Level</td>
-                                    <td>Class</td>
-                                    <td>2011/04/25</td>
-                                    <td class="action"><a title="@lang('lang.Edit')"><i class="material-icons">edit</i></a> <a title="@lang('lang.Delete')"><i class="material-icons">delete</i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td><img src="/images/user.png" alt="User Avatar" class="img-circle avatar-table" width="400"><span class="name">oday</span> </td>
-                                    <td>oday@manhal</td>
-                                    <td>0786870058</td>
-                                    <td>2015/09/21</td>
-                                    <td>Level</td>
-                                    <td>Class</td>
-                                    <td>2011/04/25</td>
-                                    <td class="action"><a title="@lang('lang.Edit')"><i class="material-icons">edit</i></a> <a title="@lang('lang.Delete')"><i class="material-icons">delete</i></a></td>
-                                </tr>
+                                @foreach($students as $student)
+                                    <?php
+                                        $i=1;
+                                            if(is_file("storage/".$student->avatar)){
+                                                $avatar=URL::to('/')."/storage/".$student->avatar;
+                                            }else{
+                                                $avatar="/images/user.png";
+                                            }
+                                    //$avatar=URL::to('/')."/storage/".$student->avatar;
+                                    ?>
+                                        <tr>
+                                            <td>{{++$i}}</td>
+                                            <td><img src="{{$avatar}}" alt="User Avatar" class="img-circle avatar-table" width="400"><span class="name">{{$student->uname}}</span></td>
+                                            <td>{{$student->email}}</td>
+                                            <td>{{$student->phone}}</td>
+                                            <td>{{$student->created_at}}</td>
+                                            <td>
+                                            {{($student->level != -1)?$student->level:"null"}}
+                                            </td>
+                                            
+                                            <td>
+                                            {{($student->class != -1)?$student->class:"null"}}
+                                            <!-- {{$student->homeRoomClass}} -->
+                                            </td>
+                                            <td>avg</td>
+                                            <td class="action">
+                                            <a class="" id="edit_student" data-id="{{$student->userid}}"><i class="material-icons" title="@lang('lang.Edit')">edit</i></a>
+                                            <a class="jq_delete_user"  data-id="{{$student->userid}}" data-action="{{url('/')."/".Lang::getLocale()}}/students/{{$student->userid}}/delete"><i class="material-icons" title="@lang('lang.Delete')">delete</i></a>
+                                            </td>
+                                        </tr>
+                                @endforeach
                             </tbody>
                         </table>
                             <div class="row">
@@ -68,23 +148,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                        <ul class="pagination">
-                                            <li class="disabled">
-                                                <a href="">
-                                                    <i class="material-icons">chevron_left</i>
-                                                </a>
-                                            </li>
-                                            <li class="active"><a href="">1</a></li>
-                                            <li><a href="" class="waves-effect">2</a></li>
-                                            <li><a href="" class="waves-effect">3</a></li>
-                                            <li><a href="" class="waves-effect">4</a></li>
-                                            <li><a href="" class="waves-effect">5</a></li>
-                                            <li>
-                                                <a href="" class="waves-effect">
-                                                    <i class="material-icons">chevron_right</i>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <!-- {{$students->links()}} -->
                                     </div>
                                 </div>
                             </div>

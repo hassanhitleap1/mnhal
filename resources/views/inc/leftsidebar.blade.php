@@ -47,7 +47,7 @@
                     <span>@lang('lang.Teachers')</span>
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('*/students') ? 'active' : '' }}">
                 <a href="{{url('/')."/".Lang::getLocale()}}/students">
                     <i class="flaticon-school fi"></i>
                     <span>@lang('lang.Students')</span>

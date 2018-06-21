@@ -11,11 +11,17 @@ class Users extends Model
     //
     protected $table = 'users';
     protected $primaryKey='userid';
+    const USER_MANHAL_ADMINISTRATOR=1;
+    const USER_SCHOOL_MANGER=2;
+    const USER_SCHOOL_ADMINISTRATOR=3;
+    const USER_TEACHER=4;
+    const USER_STUDENT=5;
+    const USER_PARENT=6;
 
-    public function homeRoomLevel(){
-        return $this->belongsTo(Levels::class);
-    }
-    public function homeRoomClass(){
-        return $this->belongsTo(Classes::class);
-    }
+    // public function homeRoomLevel(){
+    //     return $this->belongsTo(Levels::class);
+    // }
+    // public function homeRoomClass(){
+    //     return $this->belongsTo(Classes::class);
+    // }
 }

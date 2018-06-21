@@ -12,11 +12,11 @@ class Classes extends Model {
 	protected $table = 'classes';
 	public $timestamps = true;
 
-	 use SoftDeletingTrait;
+	 //use SoftDeletingTrait;
 
 	protected $dates = ['deleted_at'];
 
-	public function homeRoomClass(){
-		return $this->hasOne(Users::class);
-    }
+	// public function homeRoomClass(){
+	// 	return $this->hasOne(Users::class);
+    // }
 }

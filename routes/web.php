@@ -132,3 +132,13 @@ Route::any('/{lang}/teachers/{id}/edit','TeachersController@edit');
 Route::any('/{lang}/teachers/{id}/update','TeachersController@update');
 Route::any('/{lang}/teachers/{id}/delete','TeachersController@delete');
 Route::any('/{lang}/teachers/save','TeachersController@store');
+
+// student cotroller routes
+Route::any('/{lang}/students','StudentController@index');
+Route::any('/{lang}/students/new','StudentController@newuser');
+Route::any('/{lang}/students/{id}/edit','StudentController@edit');
+Route::any('/{lang}/students/{id}/update','StudentController@update');
+Route::any('/{lang}/students/{id}/delete','StudentController@delete');
+Route::any('/{lang}/students/save','StudentController@store');
+Route::any('/{lang}/students/filter','StudentController@filter');
+Route::any('/{lang}/students/test','StudentController@test');
