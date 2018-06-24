@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -22,7 +21,12 @@ class StudentController extends Controller
         ->select('levels.*', 'classes.*')
         ->get();
 
-        $students= Users::where("permession",Users::USER_STUDENT)->paginate(2);
+        $students = DB::table('users')
+                    ->join('classes', 'users.class', '=', 'classes.class_id')
+                    ->join('levels', 'users.level', '=', 'levels.level_id')
+                    ->where("permession",Users::USER_STUDENT)
+                    ->paginate(2);
+
         return view('students.index')->with("students",$students)->with("classes",$classes);
     }
 
@@ -100,7 +104,11 @@ class StudentController extends Controller
         }
         $studentModel->save();
         
-        $students= Users::where("permession",4)->paginate(2);
+        $students = DB::table('users')
+                    ->join('classes', 'users.class', '=', 'classes.class_id')
+                    ->join('levels', 'users.level', '=', 'levels.level_id')
+                    ->where("permession",Users::USER_STUDENT)
+                    ->paginate(2);
         $classes = DB::table('levels')
         ->join('classes', 'classes.level', '=', 'levels.level_id')
         ->select('levels.*', 'classes.*')
@@ -155,7 +163,11 @@ class StudentController extends Controller
       }
     }
     $student->save();
-    $students= Users::where("permession",3)->paginate(2);
+    $students = DB::table('users')
+                ->join('classes', 'users.class', '=', 'classes.class_id')
+                ->join('levels', 'users.level', '=', 'levels.level_id')
+                ->where("permession",Users::USER_STUDENT)
+                ->paginate(2);
    // $admins->setPath('');
     return view('students.index')->with("students",$students)->renderSections()['content'];
   }
@@ -163,7 +175,11 @@ class StudentController extends Controller
   public function delete($lang,$id){
     $input = request()->all();
     $student= Users::where("userid",$id)->delete();
-    $students= Users::where("permession",3)->paginate(2);
+    $students = DB::table('users')
+                ->join('classes', 'users.class', '=', 'classes.class_id')
+                ->join('levels', 'users.level', '=', 'levels.level_id')
+                ->where("permession",Users::USER_STUDENT)
+                ->paginate(2);
     return view('students.index')->with("students",$students)->renderSections()['content'];
   }
 
@@ -174,12 +190,15 @@ class StudentController extends Controller
    */
     public function filter(Request $request){
     
-        $query = DB::table('users');
+        $query = DB::table('users')
+                ->join('classes', 'users.class', '=', 'classes.class_id')
+                ->join('levels', 'users.level', '=', 'levels.level_id')
+                ->where("permession",Users::USER_STUDENT);
         if (Input::has('level')){
-            $query->where('level', $request->level);
+            $query->where('users.level', $request->level);
         }
         if (Input::has('class')){
-            $query->where('class', $request->class);
+            $query->where('users.class', $request->class);
         }
         
         $students=$query->paginate(2);

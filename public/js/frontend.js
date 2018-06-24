@@ -867,7 +867,7 @@ $(document).ready(function(){
     });
     $(document).on("click","#searchstudent",function(){
         var formData = new FormData($("#edit-form")[0]);
-        console.log("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffmodfpgkdp[gkpdfkgdfgggggggggggggggggggggggggg");
+        console.log("");
         $.ajax({
             url: $("#edit-form").attr("action"),
             type: 'POST',

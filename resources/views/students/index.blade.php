@@ -36,7 +36,7 @@
                                             <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                                 <div class="form-group">
                                                     <div class="form-line float-left">
-                                                        <select class="form-control show-tick">
+                                                        <select class="form-control show-tick jq_formdata" name="level"id="level">
                                                              <option value="-1">-----</option>
                                                                 <?php $Levels=[];$class_options=''; ?>
                                                                     @foreach($classes as $class)
@@ -65,7 +65,7 @@
                                             <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                                 <div class="form-group">
                                                     <div class="form-line float-left">
-                                                        <select class="form-control show-tick">
+                                                        <select class="form-control show-tick jq_formdata" name="class" id="class">
                                                             <option value="-1">-----</option>
                                                             <?=$class_options?>
                                                         </select>
@@ -128,11 +128,11 @@
                                             <td>{{$student->phone}}</td>
                                             <td>{{$student->created_at}}</td>
                                             <td>
-                                            {{($student->level != -1)?$student->level:"null"}}
+                                            {{($student->level != -1)?$student->ltitle_en:"null"}}
                                             </td>
                                             
                                             <td>
-                                            {{($student->class != -1)?$student->class:"null"}}
+                                            {{($student->class != -1)?$student->ctitle_en:"null"}}
                                             </td>
                                             <td>avg</td>
                                             <td class="action">

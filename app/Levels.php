@@ -12,8 +12,10 @@ class Levels extends Model {
     protected $primaryKey='level_id';
     public $timestamps = true;
 
-    public function student(){
-        return $this->belongsTo(Users::class);
+    public function users(){
+        return $this->hasMany(Users::class);
     }
+
+
 
 }
