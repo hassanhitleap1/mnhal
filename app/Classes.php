@@ -16,7 +16,7 @@ class Classes extends Model {
 
 	protected $dates = ['deleted_at'];
 
-	// public function homeRoomClass(){
-	// 	return $this->hasOne(Users::class);
-    // }
+    public function users(){
+       return $this->hasMany(Users::class); 
+    }
 }

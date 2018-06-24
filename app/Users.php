@@ -18,10 +18,13 @@ class Users extends Model
     const USER_STUDENT=5;
     const USER_PARENT=6;
 
-    public function levels(){
+  
+    
+     public function  level(){
         return $this->belongsTo(Levels::class);
     }
-    public function class(){
-        return $this->hasOne(Classes::class);
+    
+    public function  classes(){
+        return $this->belongsTo(Classes::class);
     }
 }
