@@ -27,6 +27,7 @@ Route::any('/{lang}/admins/new','UsersController@newuser');
 Route::any('/{lang}/admins/{id}/edit','UsersController@edit');
 Route::any('/{lang}/admins/{id}/update','UsersController@update');
 Route::any('/{lang}/admins/{id}/delete','UsersController@delete');
+Route::any('/{lang}/admins/save','UsersController@store');
 
 
 Route::any('/{lang}/category','CategoriesController@indexCategory');
@@ -141,4 +142,3 @@ Route::any('/{lang}/students/{id}/update','StudentController@update');
 Route::any('/{lang}/students/{id}/delete','StudentController@delete');
 Route::any('/{lang}/students/save','StudentController@store');
 Route::any('/{lang}/students/filter','StudentController@filter');
-Route::any('/{lang}/students/test','StudentController@test');

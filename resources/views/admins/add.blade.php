@@ -1,4 +1,4 @@
-<form id="edit-form" action="{{URL::to('/').'/'.Lang::getLocale().'/admins/savenew'}}" enctype="multipart/form-data" method="POST">
+<form id="edit-form" action="{{URL::to('/').'/'.Lang::getLocale().'/admins/save'}}" enctype="multipart/form-data" method="POST">
     <div class="row clearfix">
         <div class="col-sm-6">
             <div class="form-group">
