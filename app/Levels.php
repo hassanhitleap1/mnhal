@@ -12,8 +12,8 @@ class Levels extends Model {
     protected $primaryKey='level_id';
     public $timestamps = true;
 
-    // public function homeRoomLevel(){
-    //     return $this->hasOne(Users::class);
-    // }
+    public function student(){
+        return $this->belongsTo(Users::class);
+    }
 
 }

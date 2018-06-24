@@ -10,8 +10,9 @@
                 <div class="body table-responsive">
                         <div class="dataTables_wrapper form-inline dt-bootstrap">
                         <div class="row">
+                            <form id="edit-form" action="{{URL::to('/').'/'.Lang::getLocale().'/students/filter'}}"  method="POST">
                                 <div class="col-sm-3 float-left">
-                                    <form class="form-horizontal">
+                                    <div class="form-horizontal">
                                         <div class="row clearfix">
                                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                                 <label class="float-left">@lang('lang.Search')</label>
@@ -24,10 +25,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                                 <div class="col-sm-3 float-left">
-                                    <form class="form-horizontal">
+                                    <div class="form-horizontal">
                                         <div class="row clearfix">
                                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                                 <label class="float-left">Level</label>
@@ -53,10 +54,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                                 <div class="col-sm-3 float-left">
-                                    <form class="form-horizontal">
+                                    <div class="form-horizontal">
                                         <div class="row clearfix">
                                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                                 <label class="float-left">@lang('lang.Class')</label>
@@ -72,7 +73,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                                 <div class="col-sm-3 float-left">
                                     <form class="form-horizontal">
@@ -87,21 +88,14 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>                                                   
+                                </div>
+                            </form>                                                      
                         </div>
                         <div class="row">
                             <div class="col-sm-4 float-right">
                                  <a class="btn btn-primary waves-effect float-right" onclick="showpopup();" id="popup_addstudent" >@lang('lang.Add_Student')</a>
                             </div>
                         </div>                 
-                                            
-                                   
-
-          
-
-
-
-
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                             <thead>
                                 <tr>
@@ -139,7 +133,6 @@
                                             
                                             <td>
                                             {{($student->class != -1)?$student->class:"null"}}
-                                            <!-- {{$student->homeRoomClass}} -->
                                             </td>
                                             <td>avg</td>
                                             <td class="action">
@@ -159,9 +152,10 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                        <!-- {{$students->links()}} -->
+                                        {{$students->links()}}
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                 </div>

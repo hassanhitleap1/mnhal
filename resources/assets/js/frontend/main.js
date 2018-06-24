@@ -97,7 +97,7 @@ $(document).ready(function(){
     });
     $(document).on("click","#searchstudent",function(){
         var formData = new FormData($("#edit-form")[0]);
-        console.log();
+        console.log("");
         $.ajax({
             url: $("#edit-form").attr("action"),
             type: 'POST',

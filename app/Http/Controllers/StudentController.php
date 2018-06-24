@@ -50,59 +50,63 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-      $teacherModel=new Users();
-   
-      $rules = array(
-            'uname' => 'required',
-            'email' => 'required',
-        );
-  
-        $validator = Validator::make(Input::all(), $rules);
-  
-        if ($validator->fails())
-        {
-          $admin="";
-          $classes = DB::table('levels')
-              ->join('classes', 'classes.level', '=', 'levels.level_id')
-              ->select('levels.*', 'classes.*')
-              ->get();
-          $data=[
-              "admin"=>$admin,
-              "classes"=>$classes
-          ];
+        $studentModel=new Users();
+ 
+        $rules = array(
+              'uname' => 'required',
+              'email' => 'required',
+          );
+    
+          $validator = Validator::make(Input::all(), $rules);
+    
+          if ($validator->fails())
+          {
+            $admin="";
+            $classes = DB::table('levels')
+                ->join('classes', 'classes.level', '=', 'levels.level_id')
+                ->select('levels.*', 'classes.*')
+                ->get();
+            $data=[
+                "admin"=>$admin,
+                "classes"=>$classes
+            ];
+          
+            // return response(view('teachers.add',['data'=>$data]),200, ['Content-Type' => 'application/json']);
         
-          // return response(view('teachers.add',['data'=>$data]),200, ['Content-Type' => 'application/json']);
-      
+          }
+        
+        $studentModel->uname=$request->uname;
+        $studentModel->password=123;
+        //$studentModel->avatar
+        $studentModel->permession=Users::USER_STUDENT;
+        $studentModel->email=$request->email;
+        $studentModel->fullname=$request->fullname;
+        $studentModel->status=1;
+        $studentModel->phone=$request->phone;
+        $studentModel->birthdate=$request->birthdate;
+        $studentModel->class=$request->class;
+        $studentModel->level=$request->level;
+        $studentModel->created_at=date('Y-m-d h:m:s');
+        $path="";
+        $id=1;
+        if (request()->hasFile('avatar')) {
+          if(array_search(strtolower(request()->avatar->extension()),config('lms.aloowed_pictures'))!==false){
+            $pathdata='images/avatars/'.$id.'.'.strtolower(request()->avatar->extension());
+            $path = request()->avatar->storeAs('public/images/avatars', $id.'.'.strtolower(request()->avatar->extension()));
+            $studentModel->avatar=$pathdata;
+          }
+        }else{
+          $studentModel->avatar=$path;
         }
-      
-      $teacherModel->uname=$request->uname;
-      $teacherModel->password=123;
-      //$teacherModel->avatar
-      $teacherModel->permession=Users::USER_STUDENT;
-      $teacherModel->email=$request->email;
-      $teacherModel->fullname=$request->fullname;
-      $teacherModel->status=1;
-      $teacherModel->phone=$request->phone;
-      $teacherModel->birthdate=$request->birthdate;
-      $teacherModel->class=$request->class;
-      $teacherModel->level=$request->level;
-      $teacherModel->created_at=date('Y-m-d h:m:s');
-      $path="";
-      $id=1;
-      if (request()->hasFile('avatar')) {
-        if(array_search(strtolower(request()->avatar->extension()),config('lms.aloowed_pictures'))!==false){
-          $pathdata='images/avatars/'.$id.'.'.strtolower(request()->avatar->extension());
-          $path = request()->avatar->storeAs('public/images/avatars', $id.'.'.strtolower(request()->avatar->extension()));
-          $teacherModel->avatar=$pathdata;
-        }
-      }else{
-        $teacherModel->avatar=$path;
-      }
-      $teacherModel->save();
-      
-      $students= Users::where("permession",Users::USER_STUDENT)->paginate(2);
-      
-      return view('students.index')->with("students",$students)->renderSections()['content'];
+        $studentModel->save();
+        
+        $students= Users::where("permession",4)->paginate(2);
+        $classes = DB::table('levels')
+        ->join('classes', 'classes.level', '=', 'levels.level_id')
+        ->select('levels.*', 'classes.*')
+        ->get();
+        
+        return view('students.index')->with("students",$students)->with("classes",$classes)->renderSections()['content'];
     }
 
 
@@ -169,17 +173,22 @@ class StudentController extends Controller
    * @return Response
    */
     public function filter(Request $request){
-   
-        $students= Users::where("permession",Users::USER_STUDENT)->paginate(2);
-        $students = DB::table('users')->where('level', $request->level);
-        $students->where('class',$request->class );
-        $students=$students->get();
+    
+        $query = DB::table('users');
+        if (Input::has('level')){
+            $query->where('level', $request->level);
+        }
+        if (Input::has('class')){
+            $query->where('class', $request->class);
+        }
+        
+        $students=$query->paginate(2);
         $admin="";
         $classes = DB::table('levels')
             ->join('classes', 'classes.level', '=', 'levels.level_id')
             ->select('levels.*', 'classes.*')
             ->get();
-   
+      
         return view('students.index')->with("students",$students)->with("classes",$classes)->renderSections()['content'];
     }
 
