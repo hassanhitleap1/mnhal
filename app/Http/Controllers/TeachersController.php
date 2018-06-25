@@ -93,7 +93,7 @@ class TeachersController extends Controller {
     $teacherModel->save();
     
     $teachers= Users::where("permession",4)->paginate(2);
-    
+    $teachers->setPath('');
     return view('teachers.index')->with("teachers",$teachers)->renderSections()['content'];
   }
 
@@ -124,6 +124,7 @@ class TeachersController extends Controller {
         "teacher"=>$teacher,
         "classes"=>$classes
     ];
+    $teachers->setPath('');
     return view('teachers.edit')->with($data);
   }
 
@@ -153,7 +154,7 @@ class TeachersController extends Controller {
     }
     $teacher->save();
     $teachers= Users::where("permession",3)->paginate(2);
-   // $admins->setPath('');
+    $teachers->setPath('');
     return view('teachers.index')->with("teachers",$teachers)->renderSections()['content'];
   }
 
@@ -161,6 +162,7 @@ class TeachersController extends Controller {
     $input = request()->all();
     $teacher= Users::where("userid",$id)->delete();
     $teachers= Users::where("permession",3)->paginate(2);
+    $teachers->setPath('');
     return view('teachers.index')->with("teachers",$teachers)->renderSections()['content'];
   }
 

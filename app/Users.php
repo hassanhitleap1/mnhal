@@ -27,4 +27,22 @@ class Users extends Model
     public function  classes(){
         return $this->belongsTo(Classes::class);
     }
+
+    public static  function getAllTeachers(){
+        return self::all()->where('permession', self::USER_TEACHER);
+    }
+
+    
+    public static  function getAllAdmins(){
+        return self::all()->where('permession', self::USER_SCHOOL_ADMINISTRATOR);
+    }
+
+    public static  function getAllStudents(){
+        return self::all()->where('permession', self::USER_STUDENT);
+    }
+
+    public static  function getAllParents(){
+        return self::all()->where('permession', self::USER_PARENT);
+    }
+
 }

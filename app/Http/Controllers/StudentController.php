@@ -26,7 +26,7 @@ class StudentController extends Controller
                     ->join('levels', 'users.level', '=', 'levels.level_id')
                     ->where("permession",Users::USER_STUDENT)
                     ->paginate(2);
-
+        $students->setPath('');
         return view('students.index')->with("students",$students)->with("classes",$classes);
     }
 
@@ -113,7 +113,7 @@ class StudentController extends Controller
         ->join('classes', 'classes.level', '=', 'levels.level_id')
         ->select('levels.*', 'classes.*')
         ->get();
-        
+        $students->setPath('');
         return view('students.index')->with("students",$students)->with("classes",$classes)->renderSections()['content'];
     }
 
@@ -134,6 +134,7 @@ class StudentController extends Controller
             "student"=>$student,
             "classes"=>$classes
         ];
+        $students->setPath('');
         return view('students.edit')->with($data);
       }
 
@@ -180,6 +181,7 @@ class StudentController extends Controller
                 ->join('levels', 'users.level', '=', 'levels.level_id')
                 ->where("permession",Users::USER_STUDENT)
                 ->paginate(2);
+     $students->setPath('');                
     return view('students.index')->with("students",$students)->renderSections()['content'];
   }
 
@@ -207,7 +209,7 @@ class StudentController extends Controller
             ->join('classes', 'classes.level', '=', 'levels.level_id')
             ->select('levels.*', 'classes.*')
             ->get();
-      
+        $students->setPath('');
         return view('students.index')->with("students",$students)->with("classes",$classes)->renderSections()['content'];
     }
 
