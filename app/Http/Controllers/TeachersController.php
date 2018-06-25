@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Redirect;
 
 
 
+
+
 class TeachersController extends Controller {
 
   /**
@@ -43,29 +45,30 @@ class TeachersController extends Controller {
   public function store(Request $request)
   {
     $teacherModel=new Users();
- 
-    $rules = array(
-          'uname' => 'required',
-          'email' => 'required',
-      );
 
-      $validator = Validator::make(Input::all(), $rules);
+      $rules = array(
+        'uname' => 'required|unique:users',
+        'email' => 'required|unique:users',
+        'fullname'=>'required',
+    );
+    $validator = Validator::make(Input::all(), $rules);
+    $admin="";
+    $classes = DB::table('levels')
+        ->join('classes', 'classes.level', '=', 'levels.level_id')
+        ->select('levels.*', 'classes.*')
+        ->get();
+    $data=[
+        "admin"=>$admin,
+        "classes"=>$classes
+    ];
 
-      if ($validator->fails())
-      {
-        $admin="";
-        $classes = DB::table('levels')
-            ->join('classes', 'classes.level', '=', 'levels.level_id')
-            ->select('levels.*', 'classes.*')
-            ->get();
-        $data=[
-            "admin"=>$admin,
-            "classes"=>$classes
-        ];
-      
-        // return response(view('teachers.add',['data'=>$data]),200, ['Content-Type' => 'application/json']);
-    
-      }
+    // process the login
+    if ($validator->fails()) {
+      $errors = $validator->errors()->all();
+      //return view('teachers.add')->with($data)->with('errors',$errors)->render();
+
+    }
+
     
     $teacherModel->uname=$request->uname;
     $teacherModel->password=123;

@@ -1,15 +1,16 @@
 @section('title', 'Add')
 <form id="edit-form" action="{{URL::to('/').'/'.Lang::getLocale().'/teachers/save'}}" enctype="multipart/form-data" method="POST">
     <div class="row clearfix">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+            @if(count($errors))
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
         <div class="col-sm-6">
             <div class="form-group">
                 <div class="form-line">
