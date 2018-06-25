@@ -820,74 +820,6 @@ $(document).ready(function(){
             }
         });
     });
-    $(document).on("click","#update_teacher",function(){
-        var formData = new FormData($("#edit-form")[0]);
-        $.ajax({
-            url: $("#edit-form").attr("action"),
-            type: 'POST',
-            data: formData,
-            cache: false,
-            processData: false,
-            datatype:"HTML",
-            contentType: false,
-            success: function (HTML) {
-                if(HTML==0){
-                    swal(window.Lang.lang.error, window.Lang.lang.UnexpectedError, "error", {
-                        button: window.Lang.lang.OK
-                    });
-                }else{
-                    $("#super_content").html(HTML);
-                    hidepopup();
-                }
-            }
-        });
-    });
-    $(document).on("click","#update_student",function(){
-        var formData = new FormData($("#edit-form")[0]);
-        console.log(1111);
-        $.ajax({
-            url: $("#edit-form").attr("action"),
-            type: 'POST',
-            data: formData,
-            cache: false,
-            processData: false,
-            datatype:"HTML",
-            contentType: false,
-            success: function (HTML) {
-                if(HTML==0){
-                    swal(window.Lang.lang.error, window.Lang.lang.UnexpectedError, "error", {
-                        button: window.Lang.lang.OK
-                    });
-                }else{
-                    $("#super_content").html(HTML);
-                    hidepopup();
-                }
-            }
-        });
-    });
-    $(document).on("click","#searchstudent",function(){
-        var formData = new FormData($("#edit-form")[0]);
-        console.log("");
-        $.ajax({
-            url: $("#edit-form").attr("action"),
-            type: 'POST',
-            data: formData,
-            cache: false,
-            processData: false,
-            datatype:"HTML",
-            contentType: false,
-            success: function (HTML) {
-                if(HTML==0){
-                    swal(window.Lang.lang.error, window.Lang.lang.UnexpectedError, "error", {
-                        button: window.Lang.lang.OK
-                    });
-                }else{
-                    $("#super_content").html(HTML);
-                }
-            }
-        });
-    });
-  
     $(document).on("click",".jq_delete_user",function(){
        var data={};
         var action=$(this).attr("data-action");
@@ -925,30 +857,6 @@ $(document).ready(function(){
 
         });
     });
-    $(document).on("click","#popup_addteacher",function(){
-        $("#popup_content").load(SITE_URL+Language+"/teachers/new");
-        console.log();
-        showpopup();
-    });
-    $(document).on("click","#popup_addstudent",function(){
-        $("#popup_content").load(SITE_URL+Language+"/students/new");
-        console.log();
-        showpopup();
-    });
-    $(document).on("click","#edit_teacher",function(){
-        $("#popup_content").load(SITE_URL+Language+"/teachers/"+$(this).attr("data-id")+"/edit",function(){
-            loadPicker();
-        });
-        $("#popup_header").html(" - "+$(this).closest("tr").find(".name").html());
-        showpopup();
-    });
-    $(document).on("click","#edit_student",function(){
-        $("#popup_content").load(SITE_URL+Language+"/teachers/"+$(this).attr("data-id")+"/edit",function(){
-            loadPicker();
-        });
-        $("#popup_header").html(" - "+$(this).closest("tr").find(".name").html());
-        showpopup();
-    })
 });
 
 function showLoader(){

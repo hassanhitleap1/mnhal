@@ -62,6 +62,7 @@ return [
     'Class' => 'Class',
     'Average' => 'Average',
     'Fullname' => 'Full name',
+    'Category'=>'Category',
     'Category_ar'=>'Category Arabic',
     'Category_en'=>'Category English',
     'Category_Sort'=>'Sort Category',
@@ -104,7 +105,13 @@ return [
     'Class' => 'Class',
     'Level' => 'Level',
     'Group' => 'Group',
+    'Add_Group' => 'Add Group',
+    'Group_Name' => 'Group Name',
+    'Number_of_students' => 'Number of students',
+    'show_students' => 'Show Students',
     'Description' => 'Description',
+    'Description_En' => 'Description En',
+    'Description_Ar' => 'Description Ar',
     'Add_Media' => 'Add Media',
     'Edit_Media' => 'Edit Media',
     'Back' => 'Back',
@@ -117,5 +124,18 @@ return [
     'Yes' => 'Yes',
     'No' => 'No',
     'UserHasBeenDelSuc' => 'User has been deleted successfully',
+    'Show_Progress' => 'Show Progress',
+    'Send_Message' => 'Send Message',
+    'Please_type_what_you_want_to_send' => 'Please type what you want to send...',
+    'Cancel' => 'Cancel',
+    'Add_Badges' => 'Add Badges',
+    'Points' => 'Points',
+    'View' => 'View',
+    'Add_Class' => 'Add Class',
+    'Class_Name' => 'Class Name',
+    'Home_Room_Teacher' => 'Home Room Teacher',
+
+
+
 ]
 ?>

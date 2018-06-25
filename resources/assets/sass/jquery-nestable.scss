@@ -38,6 +38,7 @@
     min-height: 20px;
     font-size: 13px;
     line-height: 20px;
+    overflow: hidden;
 }
 
 .dd-handle {
@@ -189,7 +190,7 @@
 
 .dd3-content {
     display: block;
-    margin: 7px;
+    margin: 7px 7px 0px 7px;
     padding: 5px 10px 5px 40px;
     //color: #333;
     text-decoration: none;
@@ -218,7 +219,7 @@
     position: absolute;
     margin: 0;
     left: 0;
-    top: 0;
+    top: 7px;
     cursor: move;
     width: 36px;
     text-indent: 100%;

@@ -24,8 +24,8 @@
 </head>
 <body class="fp-page">
 <div class="fp-box">
-    <div class="logo">
-        <img src="/images/logoiphone.svg" class="logo-school" title="Alhasad schools" />
+    <div class="logo1">
+        <img src="/images/logoiphone.svg" class="logo-school" title="Almanhal schools" />
         <a>Almanhal schools</a>
     </div>
     <div class="card">

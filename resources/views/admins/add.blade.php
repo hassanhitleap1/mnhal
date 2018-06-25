@@ -1,4 +1,4 @@
-<form id="edit-form" action="{{URL::to('/').'/'.Lang::getLocale().'/admins/save'}}" enctype="multipart/form-data" method="POST">
+<form id="edit-form" action="{{URL::to('/').'/'.Lang::getLocale().'/admins/savenew'}}" enctype="multipart/form-data" method="POST">
     <div class="row clearfix">
         <div class="col-sm-6">
             <div class="form-group">
@@ -45,14 +45,14 @@
                         ?>
                         @foreach($classes as $class)
                             @if(array_search($class->level,$Levels)===false)
-                                <option data-id="{{$class->level}}" value="{{$class->level}}">{{$class->{"ltitle_".Lang::getLocale()} }}</option>
+                                <option data-id="{{$class->level}}">{{$class->{"ltitle_".Lang::getLocale()} }}</option>
                                 <?php
                                 $Levels[]=$class->level;
                                 ?>
                             @endif
 
                             <?php
-                            $class_options.='<option value='.$class->level .'  level-id="'.$class->level.'" data-id="'.$class->class_id.'">'.$class->{"ctitle_".Lang::getLocale()}.'</option>';
+                            $class_options.='<option level-id="'.$class->level.'" data-id="'.$class->class_id.'">'.$class->{"ctitle_".Lang::getLocale()}.'</option>';
                             ?>
 
                         @endforeach
@@ -71,7 +71,7 @@
                     </select>
                 </div>
             </div>
-        </div>  
+        </div>
 
         <div class="col-sm-6">
             <div class="form-group">

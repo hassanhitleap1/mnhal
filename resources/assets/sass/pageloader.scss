@@ -7,7 +7,7 @@
     right: 0;
     width: 100%;
     height: 100%;
-    background: #eee;
+    background: rgba(0,0,0,0.5);
     overflow: hidden;
     text-align: center;
 
@@ -15,9 +15,8 @@
         font-size: 13px;
         margin-top: 10px;
         font-weight: bold;
-        color: #444;
+        color:#57b52f;
     }
-
     .loader {
         position: relative;
         top: calc(50% - 30px);

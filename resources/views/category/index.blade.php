@@ -17,8 +17,9 @@
                    <div class="dataTables_wrapper form-inline dt-bootstrap">
                        <div class="row">
                            <div class="col-sm-8 float-left">
+                               {!! Form::open(array('id'=>'Category', 'method'=>'GET', 'url'=>$lang.'/category' )) !!}
                                <div class="dataTables_filter pull-left">
-                                   <label>@lang('lang.Search')</label> {!! Form::open(array('id'=>'Category', 'method'=>'GET', 'url'=>$lang.'/category' )) !!}
+                                   <label>@lang('lang.Search')</label>
                                    <input type="search" class="form-control input-sm CategoryKeywords" placeholder="@lang('lang.Search')" value="@if(!empty($search)){{$search}}@endif" aria-controls="DataTables_Table_0">
                                    @if(!empty($search))
                                    {!! Form::hidden('search',$search) !!}
@@ -29,8 +30,6 @@
                            <div class="col-sm-4 float-right">
                                <a class="btn btn-primary waves-effect float-right btn-addcategory"
                                   onclick="showpopup();">@lang('lang.Add_Category')</a>
-                           </div>
-                           <div class="col-sm-4 float-right">
                                <a class="btn btn-primary waves-effect float-right btn-sortcategory"
                                   onclick="showpopup();">@lang('lang.Category_Sort')</a>
                            </div>

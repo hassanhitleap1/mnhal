@@ -29,25 +29,25 @@
             <li class="active">page 3</li>
         </ol>
         <ul class="list">
-        <li class="{{ Request::is('*') ? 'active' : '' }}" >
+            <li class="active" {{ Request::is('/url') ? ' class="active"' : null }}>
                 <a href="{{url('/')."/".Lang::getLocale()}}/">
                     <i class="flaticon-home-page fi"></i>
                     <span>@lang('lang.Home')</span>
                 </a>
             </li>
-            <li class="{{ Request::is('*/admins') ? 'active' : '' }}" >
+            <li>
                 <a href="{{url('/')."/".Lang::getLocale()}}/admins">
                     <i class="flaticon-management fi"></i>
                     <span>@lang('lang.Admins')</span>
                 </a>
             </li>
-            <li class="{{ Request::is('*/teachers') ? 'active' : '' }}" >
+            <li >
                 <a href="{{url('/')."/".Lang::getLocale()}}/teachers">
                     <i class="flaticon-teacher-pointing-blackboard fi"></i>
                     <span>@lang('lang.Teachers')</span>
                 </a>
             </li>
-            <li class="{{ Request::is('*/students') ? 'active' : '' }}">
+            <li>
                 <a href="{{url('/')."/".Lang::getLocale()}}/students">
                     <i class="flaticon-school fi"></i>
                     <span>@lang('lang.Students')</span>
@@ -66,13 +66,13 @@
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="{{url('/')."/".Lang::getLocale()}}/classes">
                     <i class="flaticon-lesson fi"></i>
                     <span>@lang('lang.Classes')</span>
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="{{url('/')."/".Lang::getLocale()}}/groups">
                     <i class="flaticon-multiple-users-silhouette fi"></i>
                     <span>@lang('lang.Groups')</span>
                 </a>
@@ -130,13 +130,13 @@
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="{{url('/')."/".Lang::getLocale()}}/progress">
                     <i class="flaticon-progress fi"></i>
                     <span>@lang('lang.Progress')</span>
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="{{url('/')."/".Lang::getLocale()}}/badges">
                     <i class="flaticon-prize-badge-with-star-and-ribbon fi"></i>
                     <span>@lang('lang.Badges')</span>
                 </a>

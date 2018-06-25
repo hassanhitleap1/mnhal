@@ -65,6 +65,62 @@ Route::get('/{lang}/students', function ($lang=null) {
     App::setLocale($lang);
     return view('students.index');
 });
+Route::get('/{lang}/groups', function ($lang=null) {
+    App::setLocale($lang);
+    return view('groups.index');
+});
+Route::get('/{lang}/groups/add', function ($lang=null) {
+    App::setLocale($lang);
+    return view('groups.add');
+});
+Route::get('/{lang}/groups/edit', function ($lang=null) {
+    App::setLocale($lang);
+    return view('groups.edit');
+});
+Route::get('/{lang}/groups/sendmessage', function ($lang=null) {
+    App::setLocale($lang);
+    return view('groups.sendmessage');
+});
+Route::get('/{lang}/students/sendmessage', function ($lang=null) {
+    App::setLocale($lang);
+    return view('students.sendmessage');
+});
+Route::get('/{lang}/progress', function ($lang=null) {
+    App::setLocale($lang);
+    return view('progress.index');
+});
+Route::get('/{lang}/badges', function ($lang=null) {
+    App::setLocale($lang);
+    return view('badges.index');
+});
+Route::get('/{lang}/badges/add', function ($lang=null) {
+    App::setLocale($lang);
+    return view('badges.add');
+});
+Route::get('/{lang}/badges/edit', function ($lang=null) {
+    App::setLocale($lang);
+    return view('badges.edit');
+});
+Route::get('/{lang}/classes', function ($lang=null) {
+    App::setLocale($lang);
+    return view('classes.index');
+});
+Route::get('/{lang}/classes/add', function ($lang=null) {
+    App::setLocale($lang);
+    return view('classes.add');
+});
+Route::get('/{lang}/classes/edit', function ($lang=null) {
+    App::setLocale($lang);
+    return view('classes.edit');
+});
+Route::get('/{lang}/classes/sendmessage', function ($lang=null) {
+    App::setLocale($lang);
+    return view('classes.sendmessage');
+});
+Route::get('/{lang}/students/sendmessage', function ($lang=null) {
+    App::setLocale($lang);
+    return view('students.sendmessage');
+});
 Route::get('/{lang}/login/signin', function ($lang=null) {
     App::setLocale($lang);
     return view('login.signin');

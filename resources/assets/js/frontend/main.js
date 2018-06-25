@@ -117,7 +117,7 @@ $(document).ready(function(){
             }
         });
     });
-  
+
     $(document).on("click",".jq_delete_user",function(){
        var data={};
         var action=$(this).attr("data-action");

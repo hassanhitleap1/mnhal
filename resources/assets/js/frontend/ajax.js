@@ -14,6 +14,32 @@ $(document).on('click', '.btn-edithomework', function (e) {
 $(document).on('click', '.btn-addhomework', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/homework/add");
 });
+$(document).on('click', '.btn-addgroups', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/add");
+});
+$(document).on('click', '.btn-editgroups', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/edit");
+});
+
+$(document).on('click', '.btn-addclass', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/classes/add");
+});
+$(document).on('click', '.btn-editclass', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/classes/edit");
+});
+$(document).on('click', '.btn-addbadges', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/badges/add");
+});
+$(document).on('click', '.btn-editbadges', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/badges/edit");
+});
+$(document).on('click', '.btn-send-message', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/students/sendmessage");
+});
+$(document).on('click', '.btn-send-message-groups', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/sendmessage");
+});
+
 $(document).on('click', '.btn-saveeaddcategory', function (e) {
     var search='';
     if(getUrlParameter('search')!=undefined){
