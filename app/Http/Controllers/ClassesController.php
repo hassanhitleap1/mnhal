@@ -1,6 +1,13 @@
 <?php 
 
-class ClassesController extends BaseController {
+namespace App\Http\Controllers;
+
+use Illuminate\Routing\Controller;
+use App\Classes;
+
+
+
+class ClassesController extends Controller {
 
   /**
    * Display a listing of the resource.
@@ -9,7 +16,13 @@ class ClassesController extends BaseController {
    */
   public function index()
   {
-    
+    $classes= DB::table('classes')
+          ->join('levels', 'levels.level_id', '=', 'classes.level')
+          ->join('levels', 'levels.level_id', '=', 'classes.level')
+          ->join('users', 'users.level', '=', 'classes.class_id')
+          ->get();
+    //return $classes->level->ltitle_ar;
+    // return view('classes.index')->with("classes",$classes);
   }
 
   /**

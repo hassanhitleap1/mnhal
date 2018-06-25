@@ -2,6 +2,7 @@
 
 namespace App;
 use App\Users;
+use App\Classes;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +17,9 @@ class Levels extends Model {
         return $this->hasMany(Users::class);
     }
 
+    public function classes(){
+        return $this->belongsTo(Classes::class);
+    }
 
 
 }

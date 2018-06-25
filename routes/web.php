@@ -198,3 +198,11 @@ Route::any('/{lang}/students/{id}/update','StudentController@update');
 Route::any('/{lang}/students/{id}/delete','StudentController@delete');
 Route::any('/{lang}/students/save','StudentController@store');
 Route::any('/{lang}/students/filter','StudentController@filter');
+
+
+//Route::any('/{lang}/classes','ClassesController@index');
+Route::any('/{lang}/admins/new','ClassesController@newuser');
+Route::any('/{lang}/admins/{id}/edit','ClassesController@edit');
+Route::any('/{lang}/admins/{id}/update','ClassesController@update');
+Route::any('/{lang}/admins/{id}/delete','ClassesController@delete');
+Route::any('/{lang}/admins/save','ClassesController@store');
