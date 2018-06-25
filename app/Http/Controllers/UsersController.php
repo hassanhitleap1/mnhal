@@ -140,7 +140,7 @@ class UsersController extends Controller {
     }
     $admin->save();
     $admins= Users::where("permession",3)->paginate(2);
-   // $admins->setPath('');
+    $admins->setPath('');
     return view('admins.index')->with("admins",$admins)->renderSections()['content'];
   }
 
