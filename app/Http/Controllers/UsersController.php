@@ -50,7 +50,8 @@ class UsersController extends Controller {
       ->join('classes', 'classes.level', '=', 'levels.level_id')
       ->select('levels.*', 'classes.*')
       ->get();
-  $data=[
+    $admin="";
+    $data=[
       "admin"=>$admin,
       "classes"=>$classes];
     
@@ -77,10 +78,11 @@ class UsersController extends Controller {
     }else{
       $adminModel->avatar=$path;
     }
+    
     $adminModel->save();
     
     $admins= Users::where("permession",Users::USER_SCHOOL_ADMINISTRATOR)->paginate(2);
-    
+    $admins->setPath('');
     return view('admins.index')->with("admins",$admins)->renderSections()['content'];
   }
 
@@ -148,6 +150,7 @@ class UsersController extends Controller {
     $input = request()->all();
     $admin= Users::where("userid",$id)->delete();
     $admins= Users::where("permession",3)->paginate(2);
+    $admins->setPath('');
     return view('admins.index')->with("admins",$admins)->renderSections()['content'];
   }
 
