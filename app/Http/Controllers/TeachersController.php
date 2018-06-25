@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
+use Illuminate\Support\Facades\View;
+
 
 
 
@@ -65,7 +67,11 @@ class TeachersController extends Controller {
     // process the login
     if ($validator->fails()) {
       $errors = $validator->errors()->all();
-      //return view('teachers.add')->with($data)->with('errors',$errors)->render();
+      //return view('teachers.add')->with($data)->with('errors',$errors)->renderSections()['content'];
+     return response(view('teachers.add')->with($data)->with('errors',$errors),200, ['Content-Type' => 'application/json']);
+
+ 
+     
 
     }
 
