@@ -16,12 +16,18 @@ class ClassesController extends Controller {
    */
   public function index()
   {
-    //SELECT levels.ltitle_en, levels.ltitle_ar, users.fullname,classes.ctitle_ar,classes.ctitle_en FROM 
-    //`classes` INNER JOIN levels on levels.level_id=classes.level inner JOIN users on users.userid=classes.user_id
+    // SELECT classes.class_id,classes.created_at,classes.ctitle_en,classes.ctitle_ar,assigns.ref_id ,users.fullname,levels.ltitle_ar,levels.ltitle_en
+    // from classes
+    // inner JOIN levels on levels.level_id = classes.level 
+    // inner JOIN assigns on assigns.product_id = classes.class_id 
+    //  JOIN users on users.userid= assigns.ref_id
+    //  WHERE assigns.product_type='classes'
     $classes=  DB::table('classes')
             ->join('levels', 'levels.level_id', '=', 'classes.level')
-            ->join('users', 'users.userid', '=', 'classes.user_id')
-            ->select('levels.ltitle_en', 'levels.ltitle_ar', 'users.fullname','classes.ctitle_ar','classes.ctitle_en')
+            ->join('assigns','assigns.product_id' ,'=', 'classes.class_id')
+            ->join('users' , 'users.userid ','= ','assigns.ref_id')
+            ->select('classes.class_id','classes.created_at','classes.ctitle_en','classes.ctitle_ar','assigns.ref_id' ,'users.fullname','levels.ltitle_ar','levels.ltitle_en')
+            ->where('assigns.product_type','classes')
             ->get();
   
     
