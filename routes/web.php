@@ -206,3 +206,10 @@ Route::any('/{lang}/admins/{id}/edit','ClassesController@edit');
 Route::any('/{lang}/admins/{id}/update','ClassesController@update');
 Route::any('/{lang}/admins/{id}/delete','ClassesController@delete');
 Route::any('/{lang}/admins/save','ClassesController@store');
+
+Route::any('/{lang}/groups','GroupsController@index');
+Route::any('/{lang}/groups/new','GroupsController@create');
+Route::any('/{lang}/groups/save','GroupsController@store');
+Route::any('/{lang}/groups/{id}/edit','GroupsController@edit');
+Route::any('/{lang}/groups/update','GroupsController@update');
+Route::any('/{lang}/groups/{id}/delete','GroupsController@delete');

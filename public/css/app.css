@@ -16262,6 +16262,18 @@ tr.head {
   text-shadow: none;
 }
 
+.show-progress {
+  display: inline-block;
+  overflow: hidden;
+  color: #5cb85c;
+  margin-left: 5px !important;
+}
+
+.show-progress:hover {
+  color: #5cb85c;
+  text-decoration: none;
+}
+
 .limiter {
   width: 100%;
   margin: 0 auto;
@@ -16281,9 +16293,6 @@ tr.head {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-
-/*==================================================================
-[ Ver1 ]*/
 
 .table100.ver1 .row100:hover {
   background-color: #f2f2f2;
@@ -16737,7 +16746,6 @@ input.textarea {
   height: 50px;
   z-index: 99;
   background: #fafafa;
-  border: none;
   outline: none;
   padding-left: 25px;
   padding-right: 55px;
@@ -16757,6 +16765,18 @@ input.textarea {
   line-height: 50px;
   padding: 0;
   border-radius: 100% !important;
+}
+
+table.table-bordered.dataTable td.action a {
+  margin: 0 3px 0 3px;
+}
+
+.action a i.fi:before {
+  font-size: 20px;
+}
+
+.search-icon {
+  cursor: pointer;
 }
 
 /**
@@ -16799,6 +16819,7 @@ input.textarea {
   min-height: 20px;
   font-size: 13px;
   line-height: 20px;
+  overflow: hidden;
 }
 
 .dd-handle {
@@ -16945,7 +16966,7 @@ input.textarea {
 
 .dd3-content {
   display: block;
-  margin: 7px;
+  margin: 7px 7px 0px 7px;
   padding: 5px 10px 5px 40px;
   text-decoration: none;
   font-weight: bold;
@@ -16972,7 +16993,7 @@ input.textarea {
   position: absolute;
   margin: 0;
   left: 0;
-  top: 0;
+  top: 7px;
   cursor: move;
   width: 36px;
   text-indent: 100%;
@@ -23884,7 +23905,7 @@ fieldset[disabled] .form-control {
   right: 0;
   width: 100%;
   height: 100%;
-  background: #eee;
+  background: rgba(0, 0, 0, 0.5);
   overflow: hidden;
   text-align: center;
 }
@@ -23893,7 +23914,7 @@ fieldset[disabled] .form-control {
   font-size: 13px;
   margin-top: 10px;
   font-weight: bold;
-  color: #444;
+  color: #57b52f;
 }
 
 .page-loader-wrapper .loader {

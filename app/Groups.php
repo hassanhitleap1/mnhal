@@ -1,15 +1,16 @@
 <?php
 
-namespace groups;
+namespace App;
 
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
+use Illuminate\Database\Eloquent\Model;
 
-class Groups extends Eloquent {
+class Groups extends Model {
 
 	protected $table = 'groups';
 	public $timestamps = true;
 
-	use SoftDeletingTrait;
+	//use SoftDeletingTrait;
 
 	protected $dates = ['deleted_at'];
 

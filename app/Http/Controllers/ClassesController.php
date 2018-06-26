@@ -16,12 +16,15 @@ class ClassesController extends Controller {
    */
   public function index()
   {
-    $classes= DB::table('classes')
-          ->join('levels', 'levels.level_id', '=', 'classes.level')
-          ->join('levels', 'levels.level_id', '=', 'classes.level')
-          ->join('users', 'users.level', '=', 'classes.class_id')
-          ->get();
-    //return $classes->level->ltitle_ar;
+    //SELECT levels.ltitle_en, levels.ltitle_ar, users.fullname,classes.ctitle_ar,classes.ctitle_en FROM 
+    //`classes` INNER JOIN levels on levels.level_id=classes.level inner JOIN users on users.userid=classes.user_id
+    $classes=  DB::table('classes')
+            ->join('levels', 'levels.level_id', '=', 'classes.level')
+            ->join('users', 'users.userid', '=', 'classes.user_id')
+            ->select('levels.ltitle_en', 'levels.ltitle_ar', 'users.fullname','classes.ctitle_ar','classes.ctitle_en')
+            ->get();
+  
+    
     // return view('classes.index')->with("classes",$classes);
   }
 
