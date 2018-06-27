@@ -105,15 +105,16 @@ class GroupsController extends Controller {
    */
   public function edit($lang,$id){
     $group = Groups::where('group_id',$id)->first();
-    $teacher=  DB::table('groups')
+    $teacherModel=  DB::table('groups')
         ->join('assigns', 'groups.group_id', '=', 'assigns.product_id')
         ->join('users', 'assigns.ref_id', '=', 'users.userid')
-        ->select( 'users.userid')
+        ->select( 'users.userid','users.fullname')
         ->where('assigns.product_type','=','group')                   
         ->first();
     $teachers= Users::all()->where('permession',Users::USER_TEACHER);
+    
     //$teachers->setPath('');
-    return view('groups.edit')->with('teachers',$teachers)->with('group',$group)->with('teacher',$teacher);
+    return view('groups.edit')->with('teachers',$teachers)->with('group',$group)->with('teacherModel',$teacherModel);
   }
 
   /**
@@ -141,14 +142,13 @@ class GroupsController extends Controller {
       $groupModel->description_en=$request->gdesc;
       $groupModel->school=0;
       $groupModel->created_at=date('Y-m-d h:m:h');
-      if($groupModel->save()){
-        $assigns=    DB::table('assigns')
-                  ->where('product_id', $groupModel->group_id)
-                  ->where('product_type','group')
-                  ->update(['ref_id' => $request->teacher,
-                          'updated_at'=>date('Y-m-d h:m:s')]);
+      $groupModel->save();
+      $assigns=    DB::table('assigns')
+          ->where('product_id', $groupModel->group_id)
+          ->where('product_type','group')
+          ->update(['ref_id' => $request->teacher,
+                    'updated_at'=>date('Y-m-d h:m:s')]);
 
-      }
       $groups=  DB::table('groups')
       ->join('assigns', 'groups.group_id', '=', 'assigns.product_id')
       ->join('users', 'assigns.ref_id', '=', 'users.userid')

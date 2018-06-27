@@ -24,13 +24,13 @@
                 <div class="form-line">
                     <label>@lang('lang.Teacher')</label>
                     <select class="form-control show-tick jq_formdata" name="teacher"id="teacher">
-                            @foreach($teachers as $teacher)
-                                @if($teacher->userid == $teacher->userid)
-                                    <option value="{{$teacher->userid}}" selected> {{$teacher->fullname}}</option>
-                                @else
-                                    <option value="{{$teacher->userid}}"> {{$teacher->fullname}}</option>
-                                @endif
-                            @endforeach
+                                @foreach($teachers as $teacher)
+                                    @if($teacher->userid == $teacherModel->userid)   
+                                        <option value="{{$teacher->userid}}" selected> {{$teacher->fullname}}</option>
+                                    @else
+                                        <option value="{{$teacher->userid}}"> {{$teacher->fullname}}</option>
+                                    @endif 
+                                @endforeach
                     </select>
                 </div>
             </div>
