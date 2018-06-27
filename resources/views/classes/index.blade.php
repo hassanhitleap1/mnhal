@@ -11,7 +11,7 @@
                     <div class="dataTables_wrapper form-inline dt-bootstrap">
                         <div class="row">
                             <div class="col-sm-4 float-right">
-                                <a class="btn btn-primary waves-effect float-right btn-addclass" onclick="showpopup();">@lang('lang.Add_Class')</a>
+                                <a class="btn btn-primary waves-effect float-right btn-addclass" onclick="showpopup();" id="popup_addclass">@lang('lang.Add_Class')</a>
                             </div>
                         </div>
                         <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -26,14 +26,25 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($classes as $class)
                             <tr>
                                 <td>1</td>
-                                <td>Secound</td>
-                                <td>English</td>
-                                <td>oday</td>
+                                <td>{{$class->ltitle_en}}</td>
+                                <td>{{$class->ctitle_en}}</td>
+                                <td>{{$class->fullname}}</td>
                                 <td>100</td>
-                                <td class="action"><a onclick="showpopup();" class="btn-editclass" title="@lang('lang.Edit')"><i class="material-icons">edit</i></a> <a title="@lang('lang.Delete')"><i class="material-icons">delete</i></a><a onclick="showpopup();" class="btn-send-message-groups" title="@lang('lang.Send_Message')"><i class="material-icons">send</i></a><a href="{{url('/')."/".Lang::getLocale()}}/students" class="btn-show-Groups" title="@lang('lang.show_students')"><i class="flaticon-school fi"></i></a></td>
-                            </tr>
+                                <td class="action">
+                                <a  id="edit_class" data-id="{{$class->class_id}}">
+                                    <i class="material-icons" title="@lang('lang.Edit')">edit</i>
+                                </a>
+                                <a class="jq_delete_user"  data-id="{{$class->class_id}}" data-action="{{url('/')."/".Lang::getLocale()}}/classes/{{$class->class_id}}/delete">
+                                    <i class="material-icons" title="@lang('lang.Delete')">delete</i>
+                                </a>
+                              
+                                <a onclick="showpopup();" class="btn-send-message-groups" title="@lang('lang.Send_Message')"><i class="material-icons">send</i></a><a href="{{url('/')."/".Lang::getLocale()}}/students" class="btn-show-Groups" title="@lang('lang.show_students')"><i class="flaticon-school fi"></i></a></td>
+                              </tr>   
+                            @endforeach
+
                             </tbody>
                         </table>
                         <div class="row">
@@ -44,21 +55,9 @@
                                 </div>
                             </div>
                             <div class="col-sm-7">
-                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                    <ul class="pagination">
-                                        <li class="disabled">
-                                            <a href="">
-                                                <i class="material-icons">chevron_left</i>
-                                            </a>
-                                        </li>
-                                        <li class="active"><a href="">1</a></li>
-                                        <li><a href="" class="waves-effect">2</a></li>
-                                        <li><a href="" class="waves-effect">3</a></li>
-                                        <li><a href="" class="waves-effect">4</a></li>
-                                        <li><a href="" class="waves-effect">5</a></li>
-                                        <li><a href="" class="waves-effect"><i class="material-icons">chevron_right</i></a></li>
-                                    </ul>
-                                </div>
+                                    <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                        {{$classes->links()}}
+                                    </div>
                             </div>
                         </div>
                     </div>

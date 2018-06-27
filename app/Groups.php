@@ -9,7 +9,7 @@ class Groups extends Model {
 
 	protected $table = 'groups';
 	public $timestamps = true;
-
+	protected $primaryKey = 'group_id';
 	//use SoftDeletingTrait;
 
 	protected $dates = ['deleted_at'];

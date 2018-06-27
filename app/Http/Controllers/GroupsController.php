@@ -20,21 +20,21 @@ class GroupsController extends Controller {
    */
   public function index()
   {
-  //   SELECT  groups.group_id, groups.title_ar, groups.title_en ,groups.description_ar, groups.description_en , 
-  //   assigns.assign_id ,assigns.ref_id  ,assigns.ref_type ,users.fullname
-  //   FROM groups
-  //   INNER JOIN assigns ON groups.group_id=assigns.product_id 
-  //   JOIN users ON assigns.ref_id=users.userid
-  //  where assigns.product_type='group';
-  $groups=  DB::table('groups')
-          ->join('assigns', 'groups.group_id', '=', 'assigns.product_id')
-          ->join('users', 'assigns.ref_id', '=', 'users.userid')
-          ->select( 'groups.group_id', 'groups.title_ar', 'groups.title_en' ,'groups.description_ar', 'groups.description_en' , 
-                    'assigns.assign_id' ,'assigns.ref_id'  ,'assigns.ref_type' ,'users.fullname')
-          ->where('assigns.product_type','=','group')                   
-          ->paginate(2);
-    
-    return view('groups.index')->with("groups",$groups);
+    //   SELECT  groups.group_id, groups.title_ar, groups.title_en ,groups.description_ar, groups.description_en , 
+    //   assigns.assign_id ,assigns.ref_id  ,assigns.ref_type ,users.fullname
+    //   FROM groups
+    //   INNER JOIN assigns ON groups.group_id=assigns.product_id 
+    //   JOIN users ON assigns.ref_id=users.userid
+    //  where assigns.product_type='group';
+    $groups=  DB::table('groups')
+            ->join('assigns', 'groups.group_id', '=', 'assigns.product_id')
+            ->join('users', 'assigns.ref_id', '=', 'users.userid')
+            ->select( 'groups.group_id', 'groups.title_ar', 'groups.title_en' ,'groups.description_ar', 'groups.description_en' , 
+                      'assigns.assign_id' ,'assigns.ref_id'  ,'assigns.ref_type' ,'users.fullname')
+            ->where('assigns.product_type','=','group')                   
+            ->paginate(2);
+      
+      return view('groups.index')->with("groups",$groups);
   }
 
   /**
@@ -76,10 +76,11 @@ class GroupsController extends Controller {
         $groupModel->created_at=date('Y-m-d h:m:h');
         if($groupModel->save()){
           DB::table('assigns')->insert([
-            'product_id' => $groupModel->id,
+            'product_id' => $groupModel->group_id,
             'ref_id'=> $request->teacher,
             'product_type'=>'group',
             'ref_type'=>'created_at',
+            'school'=>0,
             'created_at'=>date('Y-m-d h:m:s'),
         ]);
         }
@@ -90,20 +91,11 @@ class GroupsController extends Controller {
                   'assigns.assign_id' ,'assigns.ref_id'  ,'assigns.ref_type' ,'users.fullname')
         ->where('assigns.product_type','=','group')                   
         ->paginate(2);
-
+        $groups->setPath('');  
       return view('groups.index')->with("groups",$groups)->renderSections()['content'];
-    }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
-  {
-    
   }
+
+
 
   /**
    * Show the form for editing the specified resource.
@@ -164,7 +156,7 @@ class GroupsController extends Controller {
                 'assigns.assign_id' ,'assigns.ref_id'  ,'assigns.ref_type' ,'users.fullname')
       ->where('assigns.product_type','=','group')                   
       ->paginate(2);
-
+      $groups->setPath('');
     return view('groups.index')->with("groups",$groups)->renderSections()['content'];
   }
 
@@ -174,10 +166,10 @@ class GroupsController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
+  public function destroy($lang,$id)
   {
     
-    $assigns=DB::table('users')
+    $assigns=DB::table('assigns')
     ->where('product_id', $id)
     ->where('product_type', 'group')
     ->delete();
@@ -191,7 +183,7 @@ class GroupsController extends Controller {
               'assigns.assign_id' ,'assigns.ref_id'  ,'assigns.ref_type' ,'users.fullname')
     ->where('assigns.product_type','=','group')                   
     ->paginate(2);
-
+    $groups->setPath('');
       return view('groups.index')->with("groups",$groups)->renderSections()['content'];;
   
   }

@@ -26,7 +26,7 @@
                     <select class="form-control show-tick jq_formdata" name="teacher"id="teacher">
                             <option value="" disabled selected hidden>Please Choose...</option>
                             @foreach($teachers as $teacher)
-                                <option value="{{$teacher->id}}"> {{$teacher->fullname}}</option>
+                                <option value="{{$teacher->userid}}"> {{$teacher->fullname}}</option>
                             @endforeach
                     </select>
                 </div>

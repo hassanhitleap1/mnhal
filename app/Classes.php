@@ -12,6 +12,7 @@ class Classes extends Model {
 
 	protected $table = 'classes';
 	public $timestamps = true;
+	protected $primaryKey = 'class_id';
 	//protected $fillable=[];
 
 	 //use SoftDeletingTrait;
