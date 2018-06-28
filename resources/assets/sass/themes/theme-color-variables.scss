@@ -19,7 +19,7 @@ $theme-manhalgreen-border-bottom:#58b52f;
 $theme-manhalgreen-label-count:#58b52f;
 
 //Theme Red
-$theme-red: #F44336;
+$theme-red: #222222;
 $theme-red-legal-bg: #fff;
 $theme-red-bar: #fff;
 $theme-red-navbar-brand: #fff;
@@ -35,9 +35,12 @@ $theme-red-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-red-menu-list-active: rgba(0,0,0,0);
 $theme-red-menu-list-toggled: rgba(0,0,0,0);
 $theme-red-menu-list-submenu: rgba(0,0,0,0);
+$theme-red-border-bottom:#F44336;
+$theme-red-label-count:#F44336;
+
 
 //Theme Pink
-$theme-pink: #E91E63;
+$theme-pink: #222222;
 $theme-pink-legal-bg: #fff;
 $theme-pink-bar: #fff;
 $theme-pink-navbar-brand: #fff;
@@ -53,9 +56,11 @@ $theme-pink-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-pink-menu-list-active: rgba(0,0,0,0);
 $theme-pink-menu-list-toggled: rgba(0,0,0,0);
 $theme-pink-menu-list-submenu: rgba(0,0,0,0);
+$theme-pink-border-bottom:#E91E63;
+$theme-pink-label-count:#E91E63;
 
 //Theme Purple
-$theme-purple: #9C27B0;
+$theme-purple: #222222;
 $theme-purple-legal-bg: #fff;
 $theme-purple-bar: #fff;
 $theme-purple-navbar-brand: #fff;
@@ -71,9 +76,11 @@ $theme-purple-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-purple-menu-list-active: rgba(0,0,0,0);
 $theme-purple-menu-list-toggled: rgba(0,0,0,0);
 $theme-purple-menu-list-submenu: rgba(0,0,0,0);
+$theme-purple-border-bottom:#9C27B0;
+$theme-purple-label-count:#9C27B0;
 
 //Theme Deep Purple
-$theme-deep-purple: #673AB7;
+$theme-deep-purple: #222222;
 $theme-deep-purple-legal-bg: #fff;
 $theme-deep-purple-bar: #fff;
 $theme-deep-purple-navbar-brand: #fff;
@@ -89,9 +96,11 @@ $theme-deep-purple-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-deep-purple-menu-list-active: rgba(0,0,0,0);
 $theme-deep-purple-menu-list-toggled: rgba(0,0,0,0);
 $theme-deep-purple-menu-list-submenu: rgba(0,0,0,0);
+$theme-deep-purple-border-bottom:#673AB7;
+$theme-deep-purple-label-count:#673AB7;
 
 //Theme Indigo
-$theme-indigo: #3F51B5;
+$theme-indigo: #222222;
 $theme-indigo-legal-bg: #fff;
 $theme-indigo-bar: #fff;
 $theme-indigo-navbar-brand: #fff;
@@ -107,9 +116,11 @@ $theme-indigo-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-indigo-menu-list-active: rgba(0,0,0,0);
 $theme-indigo-menu-list-toggled: rgba(0,0,0,0);
 $theme-indigo-menu-list-submenu: rgba(0,0,0,0);
+$theme-indigo-border-bottom:#3F51B5;
+$theme-indigo-label-count:#3F51B5;
 
 //Theme Blue
-$theme-blue: #2196F3;
+$theme-blue: #222222;
 $theme-blue-legal-bg: #fff;
 $theme-blue-bar: #fff;
 $theme-blue-navbar-brand: #fff;
@@ -125,9 +136,11 @@ $theme-blue-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-blue-menu-list-active: rgba(0,0,0,0);
 $theme-blue-menu-list-toggled: rgba(0,0,0,0);
 $theme-blue-menu-list-submenu: rgba(0,0,0,0);
+$theme-blue-border-bottom:#2196F3;
+$theme-blue-label-count:#2196F3;
 
 //Theme Light Blue
-$theme-light-blue: #03A9F4;
+$theme-light-blue: #222222;
 $theme-light-blue-legal-bg: #fff;
 $theme-light-blue-bar: #fff;
 $theme-light-blue-navbar-brand: #fff;
@@ -143,9 +156,11 @@ $theme-light-blue-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-light-blue-menu-list-active: rgba(0,0,0,0);
 $theme-light-blue-menu-list-toggled: rgba(0,0,0,0);
 $theme-light-blue-menu-list-submenu: rgba(0,0,0,0);
+$theme-light-blue-border-bottom:#03A9F4;
+$theme-light-blue-label-count:#03A9F4;
 
 //Theme Cyan
-$theme-cyan: #00BCD4;
+$theme-cyan: #222222;
 $theme-cyan-legal-bg: #fff;
 $theme-cyan-bar: #fff;
 $theme-cyan-navbar-brand: #fff;
@@ -161,9 +176,11 @@ $theme-cyan-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-cyan-menu-list-active: rgba(0,0,0,0);
 $theme-cyan-menu-list-toggled: rgba(0,0,0,0);
 $theme-cyan-menu-list-submenu: rgba(0,0,0,0);
+$theme-cyan-border-bottom:#00BCD4;
+$theme-cyan-label-count:#00BCD4;
 
 //Theme Teal
-$theme-teal: #009688;
+$theme-teal: #222222;
 $theme-teal-legal-bg: #fff;
 $theme-teal-bar: #fff;
 $theme-teal-navbar-brand: #fff;
@@ -179,9 +196,11 @@ $theme-teal-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-teal-menu-list-active: rgba(0,0,0,0);
 $theme-teal-menu-list-toggled: rgba(0,0,0,0);
 $theme-teal-menu-list-submenu: rgba(0,0,0,0);
+$theme-teal-border-bottom:#009688;
+$theme-teal-label-count:#009688;
 
 //Theme Green
-$theme-green: #4CAF50;
+$theme-green: #222222;
 $theme-green-legal-bg: #fff;
 $theme-green-bar: #fff;
 $theme-green-navbar-brand: #fff;
@@ -197,9 +216,11 @@ $theme-green-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-green-menu-list-active: rgba(0,0,0,0);
 $theme-green-menu-list-toggled: rgba(0,0,0,0);
 $theme-green-menu-list-submenu: rgba(0,0,0,0);
+$theme-green-border-bottom:#4CAF50;
+$theme-green-label-count:#4CAF50;
 
 //Theme Light Green
-$theme-light-green: #8BC34A;
+$theme-light-green: #222222;
 $theme-light-green-legal-bg: #fff;
 $theme-light-green-bar: #fff;
 $theme-light-green-navbar-brand: #fff;
@@ -215,9 +236,11 @@ $theme-light-green-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-light-green-menu-list-active: rgba(0,0,0,0);
 $theme-light-green-menu-list-toggled: rgba(0,0,0,0);
 $theme-light-green-menu-list-submenu: rgba(0,0,0,0);
+$theme-light-green-border-bottom:#8BC34A;
+$theme-light-green-label-count:#8BC34A;
 
 //Theme Lime
-$theme-lime: #CDDC39;
+$theme-lime: #222222;
 $theme-lime-legal-bg: #fff;
 $theme-lime-bar: #fff;
 $theme-lime-navbar-brand: #fff;
@@ -233,9 +256,11 @@ $theme-lime-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-lime-menu-list-active: rgba(0,0,0,0);
 $theme-lime-menu-list-toggled: rgba(0,0,0,0);
 $theme-lime-menu-list-submenu: rgba(0,0,0,0);
+$theme-lime-border-bottom:#CDDC39;
+$theme-lime-label-count:#CDDC39;
 
 //Theme Yellow
-$theme-yellow: #FFEB3B;
+$theme-yellow: #222222;
 $theme-yellow-legal-bg: #fff;
 $theme-yellow-bar: #fff;
 $theme-yellow-navbar-brand: #fff;
@@ -251,9 +276,11 @@ $theme-yellow-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-yellow-menu-list-active: rgba(0,0,0,0);
 $theme-yellow-menu-list-toggled: rgba(0,0,0,0);
 $theme-yellow-menu-list-submenu: rgba(0,0,0,0);
+$theme-yellow-border-bottom:#FFEB3B;
+$theme-yellow-label-count:#FFEB3B;
 
 //Theme Amber
-$theme-amber: #FFC107;
+$theme-amber: #222222;
 $theme-amber-legal-bg: #fff;
 $theme-amber-bar: #fff;
 $theme-amber-navbar-brand: #fff;
@@ -269,9 +296,11 @@ $theme-amber-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-amber-menu-list-active: rgba(0,0,0,0);
 $theme-amber-menu-list-toggled: rgba(0,0,0,0);
 $theme-amber-menu-list-submenu: rgba(0,0,0,0);
+$theme-amber-border-bottom:#FFC107;
+$theme-amber-label-count:#FFC107;
 
 //Theme Orange
-$theme-orange: #FF9800;
+$theme-orange: #222222;
 $theme-orange-legal-bg: #fff;
 $theme-orange-bar: #fff;
 $theme-orange-navbar-brand: #fff;
@@ -287,9 +316,11 @@ $theme-orange-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-orange-menu-list-active: rgba(0,0,0,0);
 $theme-orange-menu-list-toggled: rgba(0,0,0,0);
 $theme-orange-menu-list-submenu: rgba(0,0,0,0);
+$theme-orange-border-bottom:#FF9800;
+$theme-orange-label-count:#FF9800;
 
 //Theme Deep Orange
-$theme-deep-orange: #FF5722;
+$theme-deep-orange: #222222;
 $theme-deep-orange-legal-bg: #fff;
 $theme-deep-orange-bar: #fff;
 $theme-deep-orange-navbar-brand: #fff;
@@ -305,9 +336,11 @@ $theme-deep-orange-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-deep-orange-menu-list-active: rgba(0,0,0,0);
 $theme-deep-orange-menu-list-toggled: rgba(0,0,0,0);
 $theme-deep-orange-menu-list-submenu: rgba(0,0,0,0);
+$theme-deep-orange-border-bottom:#FF5722;
+$theme-deep-orange-label-count:#FF5722;
 
 //Theme Brown
-$theme-brown: #795548;
+$theme-brown: #222222;
 $theme-brown-legal-bg: #fff;
 $theme-brown-bar: #fff;
 $theme-brown-navbar-brand: #fff;
@@ -323,9 +356,11 @@ $theme-brown-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-brown-menu-list-active: rgba(0,0,0,0);
 $theme-brown-menu-list-toggled: rgba(0,0,0,0);
 $theme-brown-menu-list-submenu: rgba(0,0,0,0);
+$theme-brown-border-bottom:#795548;
+$theme-brown-label-count:#795548;
 
 //Theme Grey
-$theme-grey: #9E9E9E;
+$theme-grey: #222222;
 $theme-grey-legal-bg: #fff;
 $theme-grey-bar: #fff;
 $theme-grey-navbar-brand: #fff;
@@ -341,9 +376,11 @@ $theme-grey-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-grey-menu-list-active: rgba(0,0,0,0);
 $theme-grey-menu-list-toggled: rgba(0,0,0,0);
 $theme-grey-menu-list-submenu: rgba(0,0,0,0);
+$theme-grey-border-bottom:#9E9E9E;
+$theme-grey-label-count:#9E9E9E;
 
 //Theme Blue Grey
-$theme-blue-grey: #607D8B;
+$theme-blue-grey: #222222;
 $theme-blue-grey-legal-bg: #fff;
 $theme-blue-grey-bar: #fff;
 $theme-blue-grey-navbar-brand: #fff;
@@ -359,9 +396,11 @@ $theme-blue-grey-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-blue-grey-menu-list-active: rgba(0,0,0,0);
 $theme-blue-grey-menu-list-toggled: rgba(0,0,0,0);
 $theme-blue-grey-menu-list-submenu: rgba(0,0,0,0);
+$theme-blue-grey-border-bottom:#607D8B;
+$theme-blue-grey-label-count:#607D8B;
 
 //Theme Black
-$theme-black: #000;
+$theme-black: #222222;
 $theme-black-legal-bg: #fff;
 $theme-black-bar: #fff;
 $theme-black-navbar-brand: #fff;
@@ -377,3 +416,5 @@ $theme-black-nav-anchor-opened_focus: rgba(0,0,0,0);
 $theme-black-menu-list-active: rgba(0,0,0,0);
 $theme-black-menu-list-toggled: rgba(0,0,0,0);
 $theme-black-menu-list-submenu: rgba(0,0,0,0);
+$theme-black-border-bottom:#000;
+$theme-black-label-count:#000;

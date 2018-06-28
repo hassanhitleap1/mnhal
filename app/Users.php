@@ -8,7 +8,7 @@ use App\Classes;
 
 class Users extends Model
 {
-    //
+    
     protected $table = 'users';
     protected $primaryKey='userid';
     const USER_MANHAL_ADMINISTRATOR=1;
@@ -18,31 +18,10 @@ class Users extends Model
     const USER_STUDENT=5;
     const USER_PARENT=6;
 
-  
-    
-     public function  level(){
+    public function homeRoomLevel(){
         return $this->belongsTo(Levels::class);
     }
-    
-    public function  classes(){
+    public function homeRoomClass(){
         return $this->belongsTo(Classes::class);
     }
-
-    public static  function getAllTeachers(){
-        return self::all()->where('permession', self::USER_TEACHER);
-    }
-
-    
-    public static  function getAllAdmins(){
-        return self::all()->where('permession', self::USER_SCHOOL_ADMINISTRATOR);
-    }
-
-    public static  function getAllStudents(){
-        return self::all()->where('permession', self::USER_STUDENT);
-    }
-
-    public static  function getAllParents(){
-        return self::all()->where('permession', self::USER_PARENT);
-    }
-
 }

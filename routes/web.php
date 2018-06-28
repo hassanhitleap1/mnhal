@@ -81,6 +81,27 @@ Route::get('/{lang}/groups/sendmessage', function ($lang=null) {
     App::setLocale($lang);
     return view('groups.sendmessage');
 });
+
+Route::get('/{lang}/exams', function ($lang=null) {
+    App::setLocale($lang);
+    return view('exams.index');
+});
+Route::get('/{lang}/exams/add', function ($lang=null) {
+    App::setLocale($lang);
+    return view('exams.add');
+});
+Route::get('/{lang}/exams/edit', function ($lang=null) {
+    App::setLocale($lang);
+    return view('exams.edit');
+});
+Route::get('/{lang}/exams/assignexam', function ($lang=null) {
+    App::setLocale($lang);
+    return view('exams.assignexam');
+});
+Route::get('/{lang}/exams/browsestudents', function ($lang=null) {
+    App::setLocale($lang);
+    return view('exams.browsestudents');
+});
 Route::get('/{lang}/students/sendmessage', function ($lang=null) {
     App::setLocale($lang);
     return view('students.sendmessage');
@@ -101,6 +122,63 @@ Route::get('/{lang}/badges/edit', function ($lang=null) {
     App::setLocale($lang);
     return view('badges.edit');
 });
+
+
+Route::get('/{lang}/domains', function ($lang=null) {
+    App::setLocale($lang);
+    return view('domains.index');
+});
+Route::get('/{lang}/domains/add', function ($lang=null) {
+    App::setLocale($lang);
+    return view('domains.add');
+});
+Route::get('/{lang}/domains/edit', function ($lang=null) {
+    App::setLocale($lang);
+    return view('domains.edit');
+});
+
+Route::get('/{lang}/standards', function ($lang=null) {
+    App::setLocale($lang);
+    return view('standards.index');
+});
+Route::get('/{lang}/standards/add', function ($lang=null) {
+    App::setLocale($lang);
+    return view('standards.add');
+});
+Route::get('/{lang}/standards/edit', function ($lang=null) {
+    App::setLocale($lang);
+    return view('standards.edit');
+});
+Route::get('/{lang}/pivots', function ($lang=null) {
+    App::setLocale($lang);
+    return view('pivots.index');
+});
+Route::get('/{lang}/pivots/add', function ($lang=null) {
+    App::setLocale($lang);
+    return view('pivots.add');
+});
+Route::get('/{lang}/pivots/edit', function ($lang=null) {
+    App::setLocale($lang);
+    return view('pivots.edit');
+});
+
+Route::get('/{lang}/lessons', function ($lang=null) {
+    App::setLocale($lang);
+    return view('lessons.index');
+});
+Route::get('/{lang}/lessons/add', function ($lang=null) {
+    App::setLocale($lang);
+    return view('lessons.add');
+});
+Route::get('/{lang}/lessons/edit', function ($lang=null) {
+    App::setLocale($lang);
+    return view('lessons.edit');
+});
+Route::get('/{lang}/lessons/assignlesson', function ($lang=null) {
+    App::setLocale($lang);
+    return view('lessons.assignlesson');
+});
+
 Route::get('/{lang}/classes', function ($lang=null) {
     App::setLocale($lang);
     return view('classes.index');
@@ -133,7 +211,6 @@ Route::get('/{lang}/login/signup', function ($lang=null) {
     App::setLocale($lang);
     return view('login.signup');
 });
-
 Route::get('/{lang}/homework', function ($lang=null) {
     App::setLocale($lang);
     return view('homework.index');

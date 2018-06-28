@@ -74,8 +74,8 @@ class StudentController extends Controller
                 "admin"=>$admin,
                 "classes"=>$classes
             ];
-          
-            // return response(view('teachers.add',['data'=>$data]),200, ['Content-Type' => 'application/json']);
+            $errors=$validator->errors();
+             return response(view('teachers.add',['classes'=>$classes,'errors'=>$errors]),200, ['Content-Type' => 'application/json']);
         
           }
         

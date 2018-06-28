@@ -134,6 +134,33 @@ return [
     'Add_Class' => 'Add Class',
     'Class_Name' => 'Class Name',
     'Home_Room_Teacher' => 'Home Room Teacher',
+    'Add_Exam' => 'Add Exam',
+    'Assign_Exam' => 'Assign Exam',
+    'Browse_Students' => 'Browse Students',
+    'Questions' => 'Questions',
+    'Curriculums' => 'Curriculums',
+    'Add_Domains' => 'Add Domains',
+    'Domain_Number' => 'Domain Number',
+    'Show_Standards' => 'Show Standards',
+    'Add_Standards' => 'Add Standards',
+    'Title_Ar' => 'Title Ar',
+    'Title_En' => 'Title En',
+    'Show_Pivots' => 'Show Pivots',
+    'Show_Lessons' => 'Show Lessons',
+    'Standard_Number' => 'Standard Number',
+    'Domain' => 'Domain',
+    'Pivot' => 'Pivot',
+    'Add_Pivots' => 'Add Pivots',
+    'Pivot_Number' => 'Pivot Number',
+    'Add_Lessons' => 'Add Lessons',
+    'Assign_Lesson' => 'Assign Lesson',
+    'Standard' => 'Standard',
+    'Type' => 'Type',
+    'Min_Point' => 'Min Point',
+    'Max_Point' => 'Max Point',
+
+
+
 
 
 

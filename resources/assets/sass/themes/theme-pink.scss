@@ -1,11 +1,21 @@
 ﻿@import 'theme-color-variables';
 
 .theme-pink {
-
     .navbar {
         background-color: $theme-pink;
-    }
+        border-bottom: solid 4px $theme-pink-border-bottom;
 
+        .label-count {
+            position: absolute;
+            top: 2px;
+            right: 6px;
+            font-size: 10px;
+            line-height: 15px;
+            background-color: $theme-pink-label-count;
+            padding: 0 4px;
+            @include border-radius(50px);
+        }
+    }
     .navbar-brand {
         color: $theme-pink-navbar-brand;
 
@@ -64,10 +74,17 @@
 
                     > :first-child {
                         i, span {
-                            color: $theme-pink;
+                            color: $theme-pink-border-bottom;
                         }
                     }
                 }
+                li {
+                    background-color: $theme-pink-menu-list-active;
+                    i, span,a {
+                        color: $theme-pink;
+                    }
+                }
+
 
                 .toggled {
                     background-color: $theme-pink-menu-list-toggled;
@@ -88,5 +105,188 @@
                 }
             }
         }
+    }
+
+    .dtp {
+        .p10 > a { color: $theme-pink; text-decoration: none; }
+
+    }
+    .dtp {
+        .dtp-content {
+            .dtp-date-view {
+                header.dtp-header
+                {
+                    background: $theme-pink;;
+                    color: #fff;
+                    text-align: center;
+                    padding: 0.3em;
+                }
+            }
+        }
+        div.dtp-date{
+            background: $theme-pink-border-bottom; text-align: center; color: #fff; padding: 10px;
+        }
+        div.dtp-time{
+            background: $theme-pink-border-bottom; text-align: center; color: #fff; padding: 10px;
+        }
+        table.dtp-picker-days{
+            tr{
+                td{
+                    a.selected{ background: $theme-pink;; color: #fff; }
+                }
+
+            }
+        }
+
+    }
+    .dtp {
+        .dtp-actual-meridien {
+            a.selected {
+                background: $theme-pink; color: #fff;
+            }
+        }
+    }
+    .input-group {
+        .form-line {
+            &:after {
+                border-bottom: 2px solid $theme-pink-border-bottom !important;
+            }
+        }
+    }
+
+    .form-line {
+        &:after {
+            border-bottom: 2px solid $theme-pink-border-bottom;
+        }
+    }
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus {
+        background-color: $theme-pink-border-bottom !important;
+    }
+
+    .block-header {
+        h2 {
+            color: $theme-pink-border-bottom !important;
+
+        }
+    }
+    .dataTables_wrapper {
+        input[type="search"] {
+            border: 1px solid #e9e9e9;
+            //border-bottom: 2px solid $theme-pink-border-bottom;
+
+            &:focus,
+            &:active {
+                border-bottom: 2px solid $theme-pink-border-bottom;
+            }
+        }
+    }
+
+
+    .pagination {
+        li.active {
+            a {
+                background-color: $theme-pink;
+            }
+        }
+    }
+
+    .action
+    {
+        a{cursor: pointer;
+            i{
+                color: #aaaaaa;
+                font-size: 20px;
+            }
+        }
+    }
+    .modal {
+        .modal-header {
+            background:$theme-pink-border-bottom ;
+            color: #fff;
+
+        }
+    }
+    .pagination
+    {
+        .active > a,
+        .active > a:hover,
+        .active > a:focus,
+        .active > span,
+        .active > span:hover,
+        .active > span:focus
+        {
+            z-index: 3;
+            color: #fff;
+            background-color: $theme-pink-border-bottom;
+            border-color: $theme-pink-border-bottom;
+            cursor: default;
+        }
+    }
+    .dd3-handle {
+        background: $theme-pink-border-bottom !important;
+    }
+    .dd3-content
+    {
+        color: $theme-pink;
+
+    }
+    .dd3-content:hover {
+        color: $theme-pink-border-bottom;
+    }
+    .spinner-layer.pl-pink
+    {
+        border-color: $theme-pink-border-bottom;
+    }
+    .login-page {
+        background-color: $theme-pink;
+        .login-box {
+            a {
+                font-size: 14px;
+                text-decoration: none;
+                color: $theme-pink-border-bottom;
+            }
+        }
+    }
+    .signup-page {
+        background-color: $theme-pink;
+        .signup-box {
+            a {
+                color: $theme-pink-border-bottom;
+            }
+        }
+    }
+    .fp-page {
+        background-color: $theme-pink;
+        .fp-box {
+            a {
+                font-size: 14px;
+                text-decoration: none;
+                color: $theme-pink-border-bottom;
+            }
+        }
+    }
+    .progress .progress-bar-success
+    {
+        background-color: $theme-pink-border-bottom;
+    }
+    .chat ul li.other .message {
+        background-color: $theme-pink-border-bottom;
+    }
+    .chat ul li.you .message {
+        background-color: $theme-pink;
+    }
+    .chat ul li.other .message:after
+    {
+        border-top: 17px solid $theme-pink-border-bottom;
+    }
+    .chat ul li.you .message:after
+    {
+        border-top: 17px solid $theme-pink;
+    }
+    .user-info {
+        background: url('../images/user-img-background.png') no-repeat no-repeat;
     }
 }

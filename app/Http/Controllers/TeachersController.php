@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
-use Illuminate\Support\Facades\View;
-
-
-
 
 
 class TeachersController extends Controller {
@@ -47,34 +43,29 @@ class TeachersController extends Controller {
   public function store(Request $request)
   {
     $teacherModel=new Users();
-
-      $rules = array(
-        'uname' => 'required|unique:users',
-        'email' => 'required|unique:users',
-        'fullname'=>'required',
-    );
-    $validator = Validator::make(Input::all(), $rules);
-    $admin="";
-    $classes = DB::table('levels')
-        ->join('classes', 'classes.level', '=', 'levels.level_id')
-        ->select('levels.*', 'classes.*')
-        ->get();
-    $data=[
-        "admin"=>$admin,
-        "classes"=>$classes
-    ];
-
-    // process the login
-    if ($validator->fails()) {
-      $errors = $validator->errors()->all();
-      //return view('teachers.add')->with($data)->with('errors',$errors)->renderSections()['content'];
-     return response(view('teachers.add')->with($data)->with('errors',$errors),200, ['Content-Type' => 'application/json']);
-
  
-     
+    $rules = array(
+          'uname' => 'required',
+          'email' => 'required',
+      );
 
-    }
+      $validator = Validator::make(Input::all(), $rules);
 
+      if ($validator->fails())
+      {
+        $admin="";
+        $classes = DB::table('levels')
+            ->join('classes', 'classes.level', '=', 'levels.level_id')
+            ->select('levels.*', 'classes.*')
+            ->get();
+        $data=[
+            "admin"=>$admin,
+            "classes"=>$classes
+        ];
+      
+        // return response(view('teachers.add',['data'=>$data]),200, ['Content-Type' => 'application/json']);
+    
+      }
     
     $teacherModel->uname=$request->uname;
     $teacherModel->password=123;
@@ -133,7 +124,7 @@ class TeachersController extends Controller {
         "teacher"=>$teacher,
         "classes"=>$classes
     ];
-    $teachers->setPath('');
+    
     return view('teachers.edit')->with($data);
   }
 

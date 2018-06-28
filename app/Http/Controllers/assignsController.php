@@ -1,15 +1,16 @@
-<?php 
+<?php
 
 class assignsController extends BaseController {
 
   /**
+  
    * Display a listing of the resource.
    *
    * @return Response
    */
   public function index()
   {
-    
+
   }
 
   /**
@@ -19,7 +20,7 @@ class assignsController extends BaseController {
    */
   public function create()
   {
-    
+
   }
 
   /**
@@ -29,7 +30,7 @@ class assignsController extends BaseController {
    */
   public function store()
   {
-    
+
   }
 
   /**
@@ -40,7 +41,7 @@ class assignsController extends BaseController {
    */
   public function show($id)
   {
-    
+
   }
 
   /**
@@ -51,7 +52,7 @@ class assignsController extends BaseController {
    */
   public function edit($id)
   {
-    
+
   }
 
   /**
@@ -62,7 +63,7 @@ class assignsController extends BaseController {
    */
   public function update($id)
   {
-    
+
   }
 
   /**
@@ -73,9 +74,9 @@ class assignsController extends BaseController {
    */
   public function destroy($id)
   {
-    
+
   }
-  
+
 }
 
 ?>

@@ -17,15 +17,27 @@ $(document).on('click', '.btn-addhomework', function (e) {
 $(document).on('click', '.btn-addgroups', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/add");
 });
+$(document).on('click', '.btn-addexams', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/exams/add");
+});
 $(document).on('click', '.btn-editgroups', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/edit");
+});
+$(document).on('click', '.btn-editexam', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/exams/edit");
 });
 
 $(document).on('click', '.btn-addclass', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/classes/add");
 });
+$(document).on('click', '.btn-adddomain', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/domains/add");
+});
 $(document).on('click', '.btn-editclass', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/classes/edit");
+});
+$(document).on('click', '.btn-editdomains', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/domains/edit");
 });
 $(document).on('click', '.btn-addbadges', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/badges/add");
@@ -33,13 +45,40 @@ $(document).on('click', '.btn-addbadges', function (e) {
 $(document).on('click', '.btn-editbadges', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/badges/edit");
 });
+$(document).on('click', '.btn-addstandards', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/standards/add");
+});
+$(document).on('click', '.btn-editstandards', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/standards/edit");
+});
+
+$(document).on('click', '.btn-addPivots', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/pivots/add");
+});
+$(document).on('click', '.btn-editPivots', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/pivots/edit");
+});
+$(document).on('click', '.btn-addLessons', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/lessons/add");
+});
+$(document).on('click', '.btn-editLessons', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/lessons/edit");
+});
+$(document).on('click', '.btn-assignlesson', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/lessons/assignlesson");
+});
 $(document).on('click', '.btn-send-message', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/students/sendmessage");
 });
 $(document).on('click', '.btn-send-message-groups', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/sendmessage");
 });
-
+$(document).on('click', '.btn-Assign-Exam', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/exams/assignexam");
+});
+$(document).on('click', '.btn-browsestudents', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/exams/browsestudents");
+});
 $(document).on('click', '.btn-saveeaddcategory', function (e) {
     var search='';
     if(getUrlParameter('search')!=undefined){

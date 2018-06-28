@@ -66,6 +66,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{url('/')."/".Lang::getLocale()}}/curriculums">
+                    <i class="flaticon-games fi"></i>
+                    <span>@lang('lang.Curriculums')</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{url('/')."/".Lang::getLocale()}}/classes">
                     <i class="flaticon-lesson fi"></i>
                     <span>@lang('lang.Classes')</span>
@@ -90,29 +96,29 @@
                 </a>
                 <ul class="ml-menu">
                     <li>
-                        <a href="javascript:void(0);">
+                        <a href="{{url('/')."/".Lang::getLocale()}}/domains">
                             <span>@lang('lang.Domains')</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">
+                        <a href="{{url('/')."/".Lang::getLocale()}}/pivots">
                             <span>@lang('lang.Pivots')</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">
+                        <a href="{{url('/')."/".Lang::getLocale()}}/standards">
                             <span>@lang('lang.Standards')</span>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);">
+                        <a href="{{url('/')."/".Lang::getLocale()}}/competencies">
                             <span>@lang('lang.Competencies')</span>
                         </a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/">
+                <a href="{{url('/')."/".Lang::getLocale()}}/lessons">
                     <i class="flaticon-business-people-meeting fi"></i>
                     <span>@lang('lang.Lessons')</span>
                 </a>
@@ -124,7 +130,7 @@
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="{{url('/')."/".Lang::getLocale()}}/exams">
                     <i class="flaticon-test fi"></i>
                     <span>@lang('lang.Exams')</span>
                 </a>

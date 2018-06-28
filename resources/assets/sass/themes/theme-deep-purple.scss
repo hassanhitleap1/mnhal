@@ -1,11 +1,21 @@
 ﻿@import 'theme-color-variables';
 
 .theme-deep-purple {
-
     .navbar {
         background-color: $theme-deep-purple;
-    }
+        border-bottom: solid 4px $theme-deep-purple-border-bottom;
 
+        .label-count {
+            position: absolute;
+            top: 2px;
+            right: 6px;
+            font-size: 10px;
+            line-height: 15px;
+            background-color: $theme-deep-purple-label-count;
+            padding: 0 4px;
+            @include border-radius(50px);
+        }
+    }
     .navbar-brand {
         color: $theme-deep-purple-navbar-brand;
 
@@ -64,10 +74,17 @@
 
                     > :first-child {
                         i, span {
-                            color: $theme-deep-purple;
+                            color: $theme-deep-purple-border-bottom;
                         }
                     }
                 }
+                li {
+                    background-color: $theme-deep-purple-menu-list-active;
+                    i, span,a {
+                        color: $theme-deep-purple;
+                    }
+                }
+
 
                 .toggled {
                     background-color: $theme-deep-purple-menu-list-toggled;
@@ -88,5 +105,188 @@
                 }
             }
         }
+    }
+
+    .dtp {
+        .p10 > a { color: $theme-deep-purple; text-decoration: none; }
+
+    }
+    .dtp {
+        .dtp-content {
+            .dtp-date-view {
+                header.dtp-header
+                {
+                    background: $theme-deep-purple;;
+                    color: #fff;
+                    text-align: center;
+                    padding: 0.3em;
+                }
+            }
+        }
+        div.dtp-date{
+            background: $theme-deep-purple-border-bottom; text-align: center; color: #fff; padding: 10px;
+        }
+        div.dtp-time{
+            background: $theme-deep-purple-border-bottom; text-align: center; color: #fff; padding: 10px;
+        }
+        table.dtp-picker-days{
+            tr{
+                td{
+                    a.selected{ background: $theme-deep-purple;; color: #fff; }
+                }
+
+            }
+        }
+
+    }
+    .dtp {
+        .dtp-actual-meridien {
+            a.selected {
+                background: $theme-deep-purple; color: #fff;
+            }
+        }
+    }
+    .input-group {
+        .form-line {
+            &:after {
+                border-bottom: 2px solid $theme-deep-purple-border-bottom !important;
+            }
+        }
+    }
+
+    .form-line {
+        &:after {
+            border-bottom: 2px solid $theme-deep-purple-border-bottom;
+        }
+    }
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus {
+        background-color: $theme-deep-purple-border-bottom !important;
+    }
+
+    .block-header {
+        h2 {
+            color: $theme-deep-purple-border-bottom !important;
+
+        }
+    }
+    .dataTables_wrapper {
+        input[type="search"] {
+            border: 1px solid #e9e9e9;
+            //border-bottom: 2px solid $theme-deep-purple-border-bottom;
+
+            &:focus,
+            &:active {
+                border-bottom: 2px solid $theme-deep-purple-border-bottom;
+            }
+        }
+    }
+
+
+    .pagination {
+        li.active {
+            a {
+                background-color: $theme-deep-purple;
+            }
+        }
+    }
+
+    .action
+    {
+        a{cursor: pointer;
+            i{
+                color: #aaaaaa;
+                font-size: 20px;
+            }
+        }
+    }
+    .modal {
+        .modal-header {
+            background:$theme-deep-purple-border-bottom ;
+            color: #fff;
+
+        }
+    }
+    .pagination
+    {
+        .active > a,
+        .active > a:hover,
+        .active > a:focus,
+        .active > span,
+        .active > span:hover,
+        .active > span:focus
+        {
+            z-index: 3;
+            color: #fff;
+            background-color: $theme-deep-purple-border-bottom;
+            border-color: $theme-deep-purple-border-bottom;
+            cursor: default;
+        }
+    }
+    .dd3-handle {
+        background: $theme-deep-purple-border-bottom !important;
+    }
+    .dd3-content
+    {
+        color: $theme-deep-purple;
+
+    }
+    .dd3-content:hover {
+        color: $theme-deep-purple-border-bottom;
+    }
+    .spinner-layer.pl-deep-purple
+    {
+        border-color: $theme-deep-purple-border-bottom;
+    }
+    .login-page {
+        background-color: $theme-deep-purple;
+        .login-box {
+            a {
+                font-size: 14px;
+                text-decoration: none;
+                color: $theme-deep-purple-border-bottom;
+            }
+        }
+    }
+    .signup-page {
+        background-color: $theme-deep-purple;
+        .signup-box {
+            a {
+                color: $theme-deep-purple-border-bottom;
+            }
+        }
+    }
+    .fp-page {
+        background-color: $theme-deep-purple;
+        .fp-box {
+            a {
+                font-size: 14px;
+                text-decoration: none;
+                color: $theme-deep-purple-border-bottom;
+            }
+        }
+    }
+    .progress .progress-bar-success
+    {
+        background-color: $theme-deep-purple-border-bottom;
+    }
+    .chat ul li.other .message {
+        background-color: $theme-deep-purple-border-bottom;
+    }
+    .chat ul li.you .message {
+        background-color: $theme-deep-purple;
+    }
+    .chat ul li.other .message:after
+    {
+        border-top: 17px solid $theme-deep-purple-border-bottom;
+    }
+    .chat ul li.you .message:after
+    {
+        border-top: 17px solid $theme-deep-purple;
+    }
+    .user-info {
+        background: url('../images/user-img-background.png') no-repeat no-repeat;
     }
 }

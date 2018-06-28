@@ -865,6 +865,195 @@ $(document).ready(function(){
             }
         });
     });
+    $(document).on("click","#searchstudent",function(){
+        var formData = new FormData($("#edit-form")[0]);
+        console.log("");
+        $.ajax({
+            url: $("#edit-form").attr("action"),
+            type: 'POST',
+            data: formData,
+            cache: false,
+            processData: false,
+            datatype:"HTML",
+            contentType: false,
+            success: function (HTML) {
+                if(HTML==0){
+                    swal(window.Lang.lang.error, window.Lang.lang.UnexpectedError, "error", {
+                        button: window.Lang.lang.OK
+                    });
+                }else{
+                    $("#super_content").html(HTML);
+                }
+            }
+        });
+    });
+
+    $(document).on("click",".jq_delete_user",function(){
+       var data={};
+        var action=$(this).attr("data-action");
+        data["userid"]=$(this).attr("data-id");
+        swal({
+            title: window.Lang.lang.AreUSure,
+            text: window.Lang.lang.DoUWDelThisUser,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: window.Lang.lang.Yes,
+            cancelButtonText: window.Lang.lang.No,
+            closeOnConfirm: false
+        }, function () {
+            showLoader();
+            $.ajax({
+                url: action,
+                type: 'POST',
+                data: data,
+                cache: false,
+                processData: false,
+                datatype:"HTML",
+                contentType: false,
+                success: function (HTML) {
+                    hideLoader();
+                    if(HTML==0){
+                        swal(window.Lang.lang.error, window.Lang.lang.UnexpectedError);
+                    }else{
+                        $("#super_content").html(HTML);
+                        hidepopup();
+                        swal(window.Lang.lang.UserHasBeenDelSuc);
+                    }
+                }
+            });
+
+        });
+    });
+    $(document).on("click","#popup_addteacher",function(){
+        $("#popup_content").load(SITE_URL+Language+"/teachers/new");
+        console.log();
+        showpopup();
+    });
+    $(document).on("click","#popup_addstudent",function(){
+        $("#popup_content").load(SITE_URL+Language+"/students/new");
+        console.log();
+        showpopup();
+    });
+    $(document).on("click","#edit_teacher",function(){
+        $("#popup_content").load(SITE_URL+Language+"/teachers/"+$(this).attr("data-id")+"/edit",function(){
+            loadPicker();
+        });
+        $("#popup_header").html(" - "+$(this).closest("tr").find(".name").html());
+        showpopup();
+    });
+    $(document).on("click","#edit_student",function(){
+        $("#popup_content").load(SITE_URL+Language+"/teachers/"+$(this).attr("data-id")+"/edit",function(){
+            loadPicker();
+        });
+        $("#popup_header").html(" - "+$(this).closest("tr").find(".name").html());
+        showpopup();
+    })
+});
+
+function showLoader(){
+    $(".page-loader-wrapper").show();
+}
+function hideLoader(){
+    $(".page-loader-wrapper").hide();
+}
+/**
+ * Created by Dar Al-Manhal Publishers - Hussam Abu Khadijeh on 15/04/2018.
+ */
+
+SITE_URL="http://localhost:8000/";
+Language="en";
+$(document).ready(function(){
+   console.log(window.Lang.lang.View_All_Messages);
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
+    $(document).on("click","#popup_addadmin",function(){
+        $("#popup_content").load(SITE_URL+Language+"/admins/new");
+        console.log()
+        showpopup();
+    });
+
+    $(document).on("click",".edit_user",function(){
+        $("#popup_content").load(SITE_URL+Language+"/admins/"+$(this).attr("data-id")+"/edit",function(){
+            loadPicker();
+        });
+        $("#popup_header").html(" - "+$(this).closest("tr").find(".name").html());
+        showpopup();
+    });
+
+    $(document).on("click","#update_admin",function(){
+        var formData = new FormData($("#edit-form")[0]);
+        console.log("form",formData);
+        $.ajax({
+            url: $("#edit-form").attr("action"),
+            type: 'POST',
+            data: formData,
+            cache: false,
+            processData: false,
+            datatype:"HTML",
+            contentType: false,
+            success: function (HTML) {
+                if(HTML==0){
+                    swal(window.Lang.lang.error, window.Lang.lang.UnexpectedError, "error", {
+                        button: window.Lang.lang.OK
+                    });
+                }else{
+                    $("#super_content").html(HTML);
+                    hidepopup();
+                }
+            }
+        });
+    });
+    $(document).on("click","#update_teacher",function(){
+        var formData = new FormData($("#edit-form")[0]);
+        $.ajax({
+            url: $("#edit-form").attr("action"),
+            type: 'POST',
+            data: formData,
+            cache: false,
+            processData: false,
+            datatype:"HTML",
+            contentType: false,
+            success: function (HTML) {
+                if(HTML==0){
+                    swal(window.Lang.lang.error, window.Lang.lang.UnexpectedError, "error", {
+                        button: window.Lang.lang.OK
+                    });
+                }else{
+                    $("#super_content").html(HTML);
+                    hidepopup();
+                }
+            }
+        });
+    });
+    $(document).on("click","#update_student",function(){
+        var formData = new FormData($("#edit-form")[0]);
+        console.log(1111);
+        $.ajax({
+            url: $("#edit-form").attr("action"),
+            type: 'POST',
+            data: formData,
+            cache: false,
+            processData: false,
+            datatype:"HTML",
+            contentType: false,
+            success: function (HTML) {
+                if(HTML==0){
+                    swal(window.Lang.lang.error, window.Lang.lang.UnexpectedError, "error", {
+                        button: window.Lang.lang.OK
+                    });
+                }else{
+                    $("#super_content").html(HTML);
+                    hidepopup();
+                }
+            }
+        });
+    });
     $(document).on("click","#update_group",function(){
         var formData = new FormData($("#edit-form")[0]);
         console.log();
@@ -1050,21 +1239,53 @@ $(document).on('click', '.btn-addhomework', function (e) {
 $(document).on('click', '.btn-addgroups', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/add");
 });
+$(document).on('click', '.btn-addexams', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/exams/add");
+});
 $(document).on('click', '.btn-editgroups', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/edit");
+});
+$(document).on('click', '.btn-editexam', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/exams/edit");
 });
 
 $(document).on('click', '.btn-addclass', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/classes/add");
 });
+$(document).on('click', '.btn-adddomain', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/domains/add");
+});
 $(document).on('click', '.btn-editclass', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/classes/edit");
+});
+$(document).on('click', '.btn-editdomains', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/domains/edit");
 });
 $(document).on('click', '.btn-addbadges', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/badges/add");
 });
 $(document).on('click', '.btn-editbadges', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/badges/edit");
+});
+$(document).on('click', '.btn-addstandards', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/standards/add");
+});
+
+
+$(document).on('click', '.btn-addPivots', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/pivots/add");
+});
+$(document).on('click', '.btn-editPivots', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/pivots/edit");
+});
+$(document).on('click', '.btn-addLessons', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/lessons/add");
+});
+$(document).on('click', '.btn-editLessons', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/lessons/edit");
+});
+$(document).on('click', '.btn-assignlesson', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/lessons/assignlesson");
 });
 $(document).on('click', '.btn-send-message', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/students/sendmessage");
@@ -1073,6 +1294,12 @@ $(document).on('click', '.btn-send-message-groups', function (e) {
     $(".modal-body").empty().load("http://127.0.0.1:8000/en/groups/sendmessage");
 });
 
+$(document).on('click', '.btn-Assign-Exam', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/exams/assignexam");
+});
+$(document).on('click', '.btn-browsestudents', function (e) {
+    $(".modal-body").empty().load("http://127.0.0.1:8000/en/exams/browsestudents");
+});
 $(document).on('click', '.btn-saveeaddcategory', function (e) {
     var search='';
     if(getUrlParameter('search')!=undefined){

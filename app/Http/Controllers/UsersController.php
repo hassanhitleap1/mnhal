@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 //use App\Http\Controllers\Controller;
 use App\Users;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
+
 
 
 
@@ -41,49 +39,9 @@ class UsersController extends Controller {
    *
    * @return Response
    */
-  public function store(Request $request)
+  public function store()
   {
-    $adminModel=new Users();
- 
-  
-      $classes = DB::table('levels')
-      ->join('classes', 'classes.level', '=', 'levels.level_id')
-      ->select('levels.*', 'classes.*')
-      ->get();
-    $admin="";
-    $data=[
-      "admin"=>$admin,
-      "classes"=>$classes];
     
-    $adminModel->uname=$request->uname;
-    $adminModel->password=123;
-    //$adminModel->avatar
-    $adminModel->permession=Users::USER_SCHOOL_ADMINISTRATOR;
-    $adminModel->email=$request->email;
-    $adminModel->fullname=$request->fullname;
-    $adminModel->status=1;
-    $adminModel->phone=$request->phone;
-    $adminModel->birthdate=$request->birthdate;
-    $adminModel->class=$request->home_room_class;
-    $adminModel->level=$request->home_room_level;
-    $adminModel->created_at=date('Y-m-d h:m:s');
-    $path="";
-    $id=1;
-    if (request()->hasFile('avatar')) {
-      if(array_search(strtolower(request()->avatar->extension()),config('lms.aloowed_pictures'))!==false){
-        $pathdata='images/avatars/'.$id.'.'.strtolower(request()->avatar->extension());
-        $path = request()->avatar->storeAs('public/images/avatars', $id.'.'.strtolower(request()->avatar->extension()));
-        $adminModel->avatar=$pathdata;
-      }
-    }else{
-      $adminModel->avatar=$path;
-    }
-    
-    $adminModel->save();
-    
-    $admins= Users::where("permession",Users::USER_SCHOOL_ADMINISTRATOR)->paginate(2);
-    $admins->setPath('');
-    return view('admins.index')->with("admins",$admins)->renderSections()['content'];
   }
 
   /**
@@ -142,7 +100,7 @@ class UsersController extends Controller {
     }
     $admin->save();
     $admins= Users::where("permession",3)->paginate(2);
-    $admins->setPath('');
+   // $admins->setPath('');
     return view('admins.index')->with("admins",$admins)->renderSections()['content'];
   }
 
@@ -150,7 +108,6 @@ class UsersController extends Controller {
     $input = request()->all();
     $admin= Users::where("userid",$id)->delete();
     $admins= Users::where("permession",3)->paginate(2);
-    $admins->setPath('');
     return view('admins.index')->with("admins",$admins)->renderSections()['content'];
   }
 

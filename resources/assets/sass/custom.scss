@@ -12,21 +12,27 @@
 }
 
 .filter-big-width .form-line {
-  width: 50% !important;;
+  max-width: 77% !important;
 }
 
 .filter-big-width > label {
   padding: 7px 12px 0px 7px;
+  width: 20%;
 }
+.form-group .form-line
 
 .avatar-table {
   max-width: 35px;
   max-height: 35px;
   margin: 0 10px 0 0;
 }
-
+.img-circle {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 10px 0 0;
+}
 .table-striped > tbody > tr:nth-of-type(odd) {
-  //background-color: #eff1ef  !important;
   background-color: #f2f2f2;
 }
 
@@ -686,4 +692,8 @@ table.table-bordered.dataTable td.action a {
 .search-icon
 {
   cursor: pointer;
+}
+.assign-exam-container .card
+{
+  box-shadow: none !important;
 }

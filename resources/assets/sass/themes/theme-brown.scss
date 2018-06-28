@@ -1,11 +1,21 @@
 ﻿@import 'theme-color-variables';
 
 .theme-brown {
-
     .navbar {
         background-color: $theme-brown;
-    }
+        border-bottom: solid 4px $theme-brown-border-bottom;
 
+        .label-count {
+            position: absolute;
+            top: 2px;
+            right: 6px;
+            font-size: 10px;
+            line-height: 15px;
+            background-color: $theme-brown-label-count;
+            padding: 0 4px;
+            @include border-radius(50px);
+        }
+    }
     .navbar-brand {
         color: $theme-brown-navbar-brand;
 
@@ -64,10 +74,17 @@
 
                     > :first-child {
                         i, span {
-                            color: $theme-brown;
+                            color: $theme-brown-border-bottom;
                         }
                     }
                 }
+                li {
+                    background-color: $theme-brown-menu-list-active;
+                    i, span,a {
+                        color: $theme-brown;
+                    }
+                }
+
 
                 .toggled {
                     background-color: $theme-brown-menu-list-toggled;
@@ -88,5 +105,188 @@
                 }
             }
         }
+    }
+
+    .dtp {
+        .p10 > a { color: $theme-brown; text-decoration: none; }
+
+    }
+    .dtp {
+        .dtp-content {
+            .dtp-date-view {
+                header.dtp-header
+                {
+                    background: $theme-brown;;
+                    color: #fff;
+                    text-align: center;
+                    padding: 0.3em;
+                }
+            }
+        }
+        div.dtp-date{
+            background: $theme-brown-border-bottom; text-align: center; color: #fff; padding: 10px;
+        }
+        div.dtp-time{
+            background: $theme-brown-border-bottom; text-align: center; color: #fff; padding: 10px;
+        }
+        table.dtp-picker-days{
+            tr{
+                td{
+                    a.selected{ background: $theme-brown;; color: #fff; }
+                }
+
+            }
+        }
+
+    }
+    .dtp {
+        .dtp-actual-meridien {
+            a.selected {
+                background: $theme-brown; color: #fff;
+            }
+        }
+    }
+    .input-group {
+        .form-line {
+            &:after {
+                border-bottom: 2px solid $theme-brown-border-bottom !important;
+            }
+        }
+    }
+
+    .form-line {
+        &:after {
+            border-bottom: 2px solid $theme-brown-border-bottom;
+        }
+    }
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus {
+        background-color: $theme-brown-border-bottom !important;
+    }
+
+    .block-header {
+        h2 {
+            color: $theme-brown-border-bottom !important;
+
+        }
+    }
+    .dataTables_wrapper {
+        input[type="search"] {
+            border: 1px solid #e9e9e9;
+            //border-bottom: 2px solid $theme-brown-border-bottom;
+
+            &:focus,
+            &:active {
+                border-bottom: 2px solid $theme-brown-border-bottom;
+            }
+        }
+    }
+
+
+    .pagination {
+        li.active {
+            a {
+                background-color: $theme-brown;
+            }
+        }
+    }
+
+    .action
+    {
+        a{cursor: pointer;
+            i{
+                color: #aaaaaa;
+                font-size: 20px;
+            }
+        }
+    }
+    .modal {
+        .modal-header {
+            background:$theme-brown-border-bottom ;
+            color: #fff;
+
+        }
+    }
+    .pagination
+    {
+        .active > a,
+        .active > a:hover,
+        .active > a:focus,
+        .active > span,
+        .active > span:hover,
+        .active > span:focus
+        {
+            z-index: 3;
+            color: #fff;
+            background-color: $theme-brown-border-bottom;
+            border-color: $theme-brown-border-bottom;
+            cursor: default;
+        }
+    }
+    .dd3-handle {
+        background: $theme-brown-border-bottom !important;
+    }
+    .dd3-content
+    {
+        color: $theme-brown;
+
+    }
+    .dd3-content:hover {
+        color: $theme-brown-border-bottom;
+    }
+    .spinner-layer.pl-brown
+    {
+        border-color: $theme-brown-border-bottom;
+    }
+    .login-page {
+        background-color: $theme-brown;
+        .login-box {
+            a {
+                font-size: 14px;
+                text-decoration: none;
+                color: $theme-brown-border-bottom;
+            }
+        }
+    }
+    .signup-page {
+        background-color: $theme-brown;
+        .signup-box {
+            a {
+                color: $theme-brown-border-bottom;
+            }
+        }
+    }
+    .fp-page {
+        background-color: $theme-brown;
+        .fp-box {
+            a {
+                font-size: 14px;
+                text-decoration: none;
+                color: $theme-brown-border-bottom;
+            }
+        }
+    }
+    .progress .progress-bar-success
+    {
+        background-color: $theme-brown-border-bottom;
+    }
+    .chat ul li.other .message {
+        background-color: $theme-brown-border-bottom;
+    }
+    .chat ul li.you .message {
+        background-color: $theme-brown;
+    }
+    .chat ul li.other .message:after
+    {
+        border-top: 17px solid $theme-brown-border-bottom;
+    }
+    .chat ul li.you .message:after
+    {
+        border-top: 17px solid $theme-brown;
+    }
+    .user-info {
+        background: url('../images/user-img-background.png') no-repeat no-repeat;
     }
 }

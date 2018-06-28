@@ -36,7 +36,7 @@ class ClassesController extends Controller {
             ->join('users' , 'users.userid','=','assigns.ref_id')
             ->where('assigns.product_type','class')
             ->paginate(2);
-  
+    
     return view('classes.index')->with("classes",$classes);
   }
 
@@ -165,7 +165,7 @@ class ClassesController extends Controller {
             ->where('assigns.product_type','class')
             ->paginate(2);
     $classes->setPath('');
-  return view('classes.index')->with("classes",$classes)->renderSections()['content'];
+   return view('classes.index')->with("classes",$classes)->renderSections()['content'];
     
   }
 
